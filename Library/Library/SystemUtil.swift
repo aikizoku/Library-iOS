@@ -1,0 +1,121 @@
+//
+//  SystemUtil.swift
+//  Library
+//
+//  Created by yukithehero on 2016/08/29.
+//  Copyright © 2016年 yukithehero. All rights reserved.
+//
+
+import Foundation
+import SafariServices
+
+class SystemUtil: NSObject {
+    
+    // 端末の名前（プラットフォームコード）を取得する
+    static func deviceName() -> String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let mirror = Mirror(reflecting: systemInfo.machine)
+        var identifier = ""
+        for child in mirror.children {
+            if let value = child.value as? Int8 where value != 0 {
+                identifier.append(UnicodeScalar(UInt8(value)))
+            }
+        }
+        return identifier
+    }
+    
+    // 端末のOSバージョンを取得する
+    static func osVersion() -> String {
+        return UIDevice.currentDevice().systemVersion
+    }
+    
+    // アプリの識別子を取得する
+    static func bundleIdentifier() -> String {
+        let value: String? = NSBundle.mainBundle().bundleIdentifier
+        return value != nil ? value! : ""
+    }
+    
+    // ビルドのバージョンを取得する
+    static func buildVersion() -> String {
+        let value: AnyObject? = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion")
+        return value != nil ? value as! String : ""
+    }
+    
+    // アプリのバージョンを取得する
+    static func appVersion() -> String {
+        let value: AnyObject? = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString")
+        return value != nil ? value as! String : ""
+    }
+    
+    // 端末の言語を取得する
+    static func language() -> String {
+        let value: String? = NSLocale.preferredLanguages().first
+        return value != nil ? value! : ""
+    }
+    
+    // 端末のタイムゾーンを取得する
+    static func timeZone() -> String {
+        let fmt = NSDateFormatter.init()
+        fmt.timeZone = NSTimeZone.defaultTimeZone()
+        fmt.dateFormat = "ZZZ"
+        return fmt.stringFromDate(NSDate.init())
+    }
+    
+    // リモートプッシュ通知を登録する
+    static func registerRemotePushNotification() {
+        let types: UIUserNotificationType = [.Badge, .Sound, .Alert]
+        let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
+        let application = UIApplication.sharedApplication()
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+    }
+    
+    // プッシュ通知が有効か判定する
+    static func isEnablePushNotification() -> Bool {
+        return UIApplication.sharedApplication().isRegisteredForRemoteNotifications()
+    }
+    
+    // プッシュ通知設定画面に遷移する
+    static func openPushNotificationSetting() {
+        let url: NSURL? = NSURL(string:UIApplicationOpenSettingsURLString)
+        if url != nil {
+            UIApplication.sharedApplication().openURL(url!)
+        }
+    }
+    
+    // 外部アプリがインストールされているか判定する
+    static func isInstalledExternalApp(urlScheme: String) -> Bool {
+        let url: NSURL? = NSURL.init(string: urlScheme)
+        return url != nil ? UIApplication.sharedApplication().canOpenURL(url!) : false
+    }
+    
+    // 外部アプリを開く
+    static func openExternalApp(urlScheme: String) {
+        let url: NSURL? = NSURL.init(string: urlScheme)
+        if url != nil {
+            UIApplication.sharedApplication().openURL(url!)
+        }
+    }
+    
+    // URLをSafariで開く
+    static func openSafari(url: String) {
+        let u: NSURL? = NSURL.init(string: url)
+        if u != nil {
+            UIApplication.sharedApplication().openURL(u!)
+        }
+    }
+    
+    // URLをSafariView(iOS8はSafari)で開く
+    static func openSafariView(parentViewController: UIViewController, url: String) {
+        let u: NSURL? = NSURL.init(string: url)
+        if u != nil {
+            if #available(iOS 9.0, *) {
+                let viewController = SFSafariViewController.init(URL: u!, entersReaderIfAvailable: true)
+                parentViewController.presentViewController(viewController, animated: true, completion: nil)
+            } else {
+                UIApplication.sharedApplication().openURL(u!)
+            }
+        }
+    }
+}
