@@ -14,8 +14,8 @@ extension UIView {
         get {
             return self.frame.origin
         }
-        set(origin) {
-            self.frame.origin = origin
+        set {
+            self.frame.origin = newValue
         }
     }
     
@@ -23,8 +23,8 @@ extension UIView {
         get {
             return self.frame.origin.x
         }
-        set(x) {
-            self.frame.origin.x = x
+        set {
+            self.frame.origin.x = newValue
         }
     }
     
@@ -32,8 +32,8 @@ extension UIView {
         get {
             return self.frame.origin.y
         }
-        set(y) {
-            self.frame.origin.y = y
+        set {
+            self.frame.origin.y = newValue
         }
     }
     
@@ -41,8 +41,8 @@ extension UIView {
         get {
             return self.frame.size
         }
-        set(size) {
-            self.frame.size = size
+        set {
+            self.frame.size = newValue
         }
     }
     
@@ -50,8 +50,8 @@ extension UIView {
         get {
             return self.frame.size.width
         }
-        set(width) {
-            self.frame.size.width = width
+        set {
+            self.frame.size.width = newValue
         }
     }
     
@@ -59,8 +59,8 @@ extension UIView {
         get {
             return self.frame.size.height
         }
-        set(height) {
-            self.frame.size.height = height
+        set {
+            self.frame.size.height = newValue
         }
     }
     

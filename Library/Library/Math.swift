@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MathUtil: NSObject {
+class Math: NSObject {
     
     // valueをminからmaxの範囲に収めた結果を返す
     static func clampInt(value: Int, min: Int, max: Int) -> Int {
@@ -51,6 +51,11 @@ class MathUtil: NSObject {
     
     // ランダムな真偽値を返す
     static func randBool() -> Bool {
-        return MathUtil.randInt(0, max: 1) == 1
+        return self.randInt(0, max: 1) == 1
+    }
+    
+    // 百分率でランダムな真偽値を返す
+    static func randBool(percent: Int) -> Bool {
+        return self.randInt(0, max: 100) < percent
     }
 }

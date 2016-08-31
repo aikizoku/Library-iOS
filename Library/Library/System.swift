@@ -9,7 +9,7 @@
 import Foundation
 import SafariServices
 
-class SystemUtil: NSObject {
+class System: NSObject {
     
     // 端末の名前（プラットフォームコード）を取得する
     static func deviceName() -> String {
@@ -33,7 +33,7 @@ class SystemUtil: NSObject {
     // アプリの識別子を取得する
     static func bundleIdentifier() -> String {
         let value: String? = NSBundle.mainBundle().bundleIdentifier
-        return value != nil ? value! : ""
+        return value ?? ""
     }
     
     // ビルドのバージョンを取得する
@@ -51,7 +51,7 @@ class SystemUtil: NSObject {
     // 端末の言語を取得する
     static func language() -> String {
         let value: String? = NSLocale.preferredLanguages().first
-        return value != nil ? value! : ""
+        return value ?? ""
     }
     
     // 端末のタイムゾーンを取得する
