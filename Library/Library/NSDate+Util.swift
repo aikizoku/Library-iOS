@@ -10,6 +10,7 @@ import Foundation
 
 extension NSDate {
     
+    // Stringに変換する
     func toString(format: String) -> NSString {
         let fmt = NSDateFormatter.init()
         fmt.locale = NSLocale.init(localeIdentifier: "en_US_POSIX")

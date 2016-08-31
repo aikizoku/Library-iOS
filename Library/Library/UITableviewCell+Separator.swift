@@ -19,6 +19,7 @@ extension UITableViewCell {
         }
     }
     
+    // セパレータの色を設定
     var separatorColor: UIColor {
         get {
             return self.separatorColor ?? UIColor.lightGrayColor()
@@ -28,6 +29,7 @@ extension UITableViewCell {
         }
     }
     
+    // セパレータを設定
     var separator: Bool {
         get {
             return self.separator

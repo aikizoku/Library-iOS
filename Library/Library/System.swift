@@ -32,26 +32,22 @@ class System: NSObject {
     
     // アプリの識別子を取得する
     static func bundleIdentifier() -> String {
-        let value: String? = NSBundle.mainBundle().bundleIdentifier
-        return value ?? ""
+        return NSBundle.mainBundle().bundleIdentifier ?? ""
     }
     
     // ビルドのバージョンを取得する
     static func buildVersion() -> String {
-        let value: AnyObject? = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion")
-        return value != nil ? value as! String : ""
+        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as? String ?? ""
     }
     
     // アプリのバージョンを取得する
     static func appVersion() -> String {
-        let value: AnyObject? = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString")
-        return value != nil ? value as! String : ""
+        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String ?? ""
     }
     
     // 端末の言語を取得する
     static func language() -> String {
-        let value: String? = NSLocale.preferredLanguages().first
-        return value ?? ""
+        return NSLocale.preferredLanguages().first ?? ""
     }
     
     // 端末のタイムゾーンを取得する

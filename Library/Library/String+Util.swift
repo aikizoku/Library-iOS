@@ -19,27 +19,31 @@ extension String {
             })
     }
     
-    // null判定付きの空文字判定
+    // nil判定付きの空文字判定
     static func isEmpty(string: String?) -> Bool {
         return string == nil || string!.isEmpty
     }
     
+    // URLエンコードする
     func urlEncode() -> String {
         let enc: String? = self.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
         return enc ?? self
     }
     
+    // URLデコードする
     func urlDecode() -> String {
         let dec: String? = self.stringByRemovingPercentEncoding;
         return dec ?? self
     }
     
+    // 数値かどうか判定する
     func isNumeric() -> Bool {
         let sc = NSScanner.init(string: self)
         sc.locale = NSLocale.currentLocale()
         return sc.scanDecimal(nil) && sc.atEnd
     }
     
+    // Dateに変換する
     func toDate(format: String) -> NSDate? {
         let fmt = NSDateFormatter.init()
         fmt.locale = NSLocale.init(localeIdentifier: "en_US_POSIX")
