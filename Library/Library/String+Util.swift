@@ -18,20 +18,22 @@ extension String {
     }
     
     // nil判定付きの空文字判定
-    static func isEmpty(string: String?) -> Bool {
-        return string == nil || string!.isEmpty
+    static func isNotNilEmpty(string: String?) -> Bool {
+        if let string = string {
+            return !string.isEmpty
+        } else {
+            return false
+        }
     }
     
     // URLエンコードする
     func urlEncode() -> String {
-        let enc: String? = self.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
-        return enc ?? self
+        return self.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()) ?? self
     }
     
     // URLデコードする
     func urlDecode() -> String {
-        let dec: String? = self.stringByRemovingPercentEncoding;
-        return dec ?? self
+        return self.stringByRemovingPercentEncoding ?? self
     }
     
     // 数値かどうか判定する

@@ -73,43 +73,42 @@ class System: NSObject {
     
     // プッシュ通知設定画面に遷移する
     static func openPushNotificationSetting() {
-        let url: NSURL? = NSURL(string:UIApplicationOpenSettingsURLString)
-        if url != nil {
-            UIApplication.sharedApplication().openURL(url!)
+        if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
+            UIApplication.sharedApplication().openURL(url)
         }
     }
     
     // 外部アプリがインストールされているか判定する
-    static func isInstalledExternalApp(urlScheme: String) -> Bool {
-        let url: NSURL? = NSURL.init(string: urlScheme)
-        return url != nil ? UIApplication.sharedApplication().canOpenURL(url!) : false
+    static func isOpenExternalApp(urlScheme: String) -> Bool {
+        if let url = NSURL.init(string: urlScheme) {
+            return UIApplication.sharedApplication().canOpenURL(url)
+        } else {
+            return false
+        }
     }
     
     // 外部アプリを開く
     static func openExternalApp(urlScheme: String) {
-        let url: NSURL? = NSURL.init(string: urlScheme)
-        if url != nil {
-            UIApplication.sharedApplication().openURL(url!)
+        if let url = NSURL.init(string: urlScheme) {
+            UIApplication.sharedApplication().openURL(url)
         }
     }
     
     // URLをSafariで開く
     static func openSafari(url: String) {
-        let u: NSURL? = NSURL.init(string: url)
-        if u != nil {
-            UIApplication.sharedApplication().openURL(u!)
+        if let u = NSURL.init(string: url) {
+            UIApplication.sharedApplication().openURL(u)
         }
     }
     
     // URLをSafariView(iOS8はSafari)で開く
     static func openSafariView(parentViewController: UIViewController, url: String) {
-        let u: NSURL? = NSURL.init(string: url)
-        if u != nil {
+        if let u = NSURL.init(string: url) {
             if #available(iOS 9.0, *) {
-                let viewController = SFSafariViewController.init(URL: u!, entersReaderIfAvailable: true)
+                let viewController = SFSafariViewController.init(URL: u, entersReaderIfAvailable: true)
                 parentViewController.presentViewController(viewController, animated: true, completion: nil)
             } else {
-                UIApplication.sharedApplication().openURL(u!)
+                UIApplication.sharedApplication().openURL(u)
             }
         }
     }
