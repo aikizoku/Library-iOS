@@ -6,8 +6,6 @@
 //  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
-import Foundation
-
 extension Array {
     
     func getString(i: Int) -> String {

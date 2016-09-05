@@ -6,8 +6,6 @@
 //  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
-import Foundation
-
 class Math: NSObject {
     
     // valueをminからmaxの範囲に収めた結果を返す

@@ -6,16 +6,14 @@
 //  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
-import Foundation
-
 extension UITableViewCell {
     
-    var separatorView: UIView? {
+    private var separatorView: UIView? {
         get {
-            return self.separatorView
+            return self.associatedObjects["separatorView"] as? UIView
         }
         set {
-            self.separatorView = newValue
+            self.associatedObjects["separatorView"] = newValue
         }
     }
     
@@ -25,7 +23,7 @@ extension UITableViewCell {
             return self.separatorColor ?? UIColor.lightGrayColor()
         }
         set {
-            self.separatorColor = newValue
+            self.associatedObjects["separatorColor"] = newValue
         }
     }
     
