@@ -19,6 +19,7 @@ extension NSMutableAttributedString {
         self.appendAttributedString(string)
     }
     
+    // フォントを設定
     func setFont(font: UIFont) {
         self.setFont(font, range: self.allRange())
     }
@@ -29,12 +30,11 @@ extension NSMutableAttributedString {
                           range: range)
     }
     
-    // フォントを設定
+    // カラーを設定
     func setColor(color: UIColor) {
         self.setColor(color, range: self.allRange())
     }
     
-    // カラーを設定
     func setColor(color: UIColor, range: NSRange) {
         self.addAttribute(NSForegroundColorAttributeName,
                           value: color,

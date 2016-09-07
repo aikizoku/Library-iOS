@@ -1,5 +1,5 @@
 //
-//  NSDate+Util.swift
+//  NSDate+Parse.swift
 //  Library
 //
 //  Created by Yuki Hirose on 2016/08/30.

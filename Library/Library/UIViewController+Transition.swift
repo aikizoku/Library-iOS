@@ -1,5 +1,5 @@
 //
-//  UIViewController+Helper.swift
+//  UIViewController+Transition.swift
 //  moonshot
 //
 //  Created by Yuki Hirose on 2016/09/05.

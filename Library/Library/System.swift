@@ -10,6 +10,16 @@ import SafariServices
 
 class System: NSObject {
     
+    // iPhoneか判別
+    let isPhone = { () -> Bool in
+        return UIDevice.currentDevice().userInterfaceIdiom == .Phone
+    }
+    
+    // iPadか判別
+    let isPad = { () -> Bool in
+        return UIDevice.currentDevice().userInterfaceIdiom == .Pad
+    }
+    
     // 端末の名前（プラットフォームコード）を取得する
     static func deviceName() -> String {
         var systemInfo = utsname()
