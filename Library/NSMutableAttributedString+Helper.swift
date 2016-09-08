@@ -6,6 +6,9 @@
 //  Copyright © 2016年 Yuki Hirose. All rights reserved.
 //
 
+import Foundation
+import UIKit
+
 extension NSMutableAttributedString {
     
     // 全範囲を取得

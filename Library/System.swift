@@ -6,6 +6,7 @@
 //  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
+import Foundation
 import SafariServices
 
 class System: NSObject {

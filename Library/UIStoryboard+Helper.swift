@@ -6,6 +6,7 @@
 //  Copyright © 2016年 Yuki Hirose. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 extension UIStoryboard {

@@ -6,9 +6,12 @@
 //  Copyright © 2016年 Yuki Hirose. All rights reserved.
 //
 
+import Foundation
+import UIKit
+
 extension UITableView {
     
-    func registerCell(nibName: String, reuseIdentifier: String) {
+    func registerCell(nibName nibName: String, reuseIdentifier: String) {
         self.registerNib(UINib.init(nibName: nibName, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
     }
 }

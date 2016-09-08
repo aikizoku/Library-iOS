@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import UIKit
+
+import Foundation
 
 extension UIView: HasAssociatedObjects {
     

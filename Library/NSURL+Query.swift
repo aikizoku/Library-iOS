@@ -6,10 +6,12 @@
 //  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
+import Foundation
+
 extension NSURL {
     
     // Queryを分解する
-    var querys: [String : String] {
+    var queryParams: [String : String] {
         var results: [String : String] = [:]
         guard let urlComponents = NSURLComponents(string: self.absoluteString), let items = urlComponents.queryItems else {
             return results

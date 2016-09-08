@@ -6,6 +6,9 @@
 //  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
+import Foundation
+import UIKit
+
 extension UIView {
     
     var origin: CGPoint {

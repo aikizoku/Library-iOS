@@ -6,6 +6,9 @@
 //  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
+import Foundation
+import UIKit
+
 extension UITableViewCell {
     
     private var separatorView: UIView? {

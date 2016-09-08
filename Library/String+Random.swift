@@ -6,6 +6,8 @@
 //  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
+import Foundation
+
 extension String {
     
     // ランダム文字列(0~0,a~z,A~Z)を生成する

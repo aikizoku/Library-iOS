@@ -6,6 +6,8 @@
 //  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
+import Foundation
+
 extension Dictionary {
     
     func getString(key: Key) -> String {
@@ -22,6 +24,22 @@ extension Dictionary {
     
     func getInt(key: Key, defaultValue: Int) -> Int {
         return self[key] as? Int ?? defaultValue
+    }
+    
+    func getFloat(key: Key) -> Float {
+        return getFloat(key, defaultValue: 0)
+    }
+    
+    func getFloat(key: Key, defaultValue: Float) -> Float {
+        return self[key] as? Float ?? defaultValue
+    }
+    
+    func getDouble(key: Key) -> Double {
+        return getDouble(key, defaultValue: 0)
+    }
+    
+    func getDouble(key: Key, defaultValue: Double) -> Double {
+        return self[key] as? Double ?? defaultValue
     }
     
     func getBool(key: Key) -> Bool {

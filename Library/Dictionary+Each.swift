@@ -6,6 +6,8 @@
 //  Copyright © 2016年 Yuki Hirose. All rights reserved.
 //
 
+import Foundation
+
 extension Dictionary {
     
     func each(closure: (key: Key, value: Value) -> Void) {

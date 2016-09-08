@@ -6,6 +6,9 @@
 //  Copyright © 2016年 Yuki Hirose. All rights reserved.
 //
 
+import Foundation
+import UIKit
+
 enum UIViewTransitionType {
     case None
     case Present
@@ -41,7 +44,7 @@ extension UIViewController {
         }
     }
     
-    func dismissViewController(transitionType: UIViewTransitionType, completion: (UIViewController) -> Void) {
+    func dismissViewController(transitionType transitionType: UIViewTransitionType, completion: (UIViewController) -> Void) {
         var animated = false
         switch transitionType {
         case .Present:

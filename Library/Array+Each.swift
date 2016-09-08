@@ -6,6 +6,8 @@
 //  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
+import Foundation
+
 extension Array {
     
     /**
@@ -13,7 +15,6 @@ extension Array {
      - parameter closure: 各要素に対して実行するクロージャ
      ```
      hoges.each({ hoge in
-        println(hoge)
      })
      ```
      */
@@ -28,15 +29,13 @@ extension Array {
      - parameter closure: 各要素に対して実行するクロージャ
      ```
      hoges.each({ i, hoge in
-         println(i)
-         println(hoge)
      })
      ```
      */
-    func each(closure: (index: Int, element: Element) -> Void) {
-        let c = self.count
+    func each(closure: (i: Int, element: Element) -> Void) {
+        let c = count
         for i in 0 ..< c {
-            closure(index: i, element: self[i])
+            closure(i: i, element: self[i])
         }
     }
     
@@ -45,22 +44,20 @@ extension Array {
      - parameter closure: 各要素に対して実行するクロージャ
      ```
      hoges.each({ first, last, hoge in
-       if first {
-           println("初回のループ")
-       }
-       if last {
-           println("最後のループ")
-       }
-       println(hoge)
+     if first {
+     }
+     if last {
+     }
+     println(hoge)
      })
      ```
      */
     func each(closure: (first: Bool, last: Bool, element: Element) -> Void) {
-        let c = self.count
-        let cm = c - 1
+        let c = count
+        let mi = c - 1
         for i in 0 ..< c {
             let first = i == 0
-            let last = i == cm
+            let last = i == mi
             closure(first: first, last: last, element: self[i])
         }
     }

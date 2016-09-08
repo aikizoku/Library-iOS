@@ -6,6 +6,8 @@
 //  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
+import Foundation
+
 extension Double {
     
     func setTimeout(closure: () -> Void) {
