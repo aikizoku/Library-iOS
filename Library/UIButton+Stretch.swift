@@ -12,13 +12,13 @@ import UIKit
 extension UIButton {
     
     func setStretchImageName(name: String, state: UIControlState) {
-        self.setStretchImageName(name, state: state, capWidth: 2, capHeight: 2)
+        setStretchImageName(name, state: state, capWidth: 2, capHeight: 2)
     }
     
     func setStretchImageName(name: String, state: UIControlState, capWidth: Int, capHeight: Int) {
-        if let image = UIImage.init(named: name) {
+        if let image = UIImage(named: name) {
             let stretchImage = image.stretchableImageWithLeftCapWidth(capWidth, topCapHeight: capHeight)
-            self.setBackgroundImage(stretchImage, forState: state)
+            setBackgroundImage(stretchImage, forState: state)
         }
     }
 }

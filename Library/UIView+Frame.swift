@@ -13,61 +13,61 @@ extension UIView {
     
     var origin: CGPoint {
         get {
-            return self.frame.origin
+            return frame.origin
         }
         set {
-            self.frame.origin = newValue
+            frame.origin = newValue
         }
     }
     
     var x: CGFloat {
         get {
-            return self.frame.origin.x
+            return frame.origin.x
         }
         set {
-            self.frame.origin.x = newValue
+            frame.origin.x = newValue
         }
     }
     
     var y: CGFloat {
         get {
-            return self.frame.origin.y
+            return frame.origin.y
         }
         set {
-            self.frame.origin.y = newValue
+            frame.origin.y = newValue
         }
     }
     
     var size: CGSize {
         get {
-            return self.frame.size
+            return frame.size
         }
         set {
-            self.frame.size = newValue
+            frame.size = newValue
         }
     }
     
     var width: CGFloat {
         get {
-            return self.frame.size.width
+            return frame.size.width
         }
         set {
-            self.frame.size.width = newValue
+            frame.size.width = newValue
         }
     }
     
     var height: CGFloat {
         get {
-            return self.frame.size.height
+            return frame.size.height
         }
         set {
-            self.frame.size.height = newValue
+            frame.size.height = newValue
         }
     }
     
     func addOrigin(origin: CGPoint) {
-        self.x += origin.x
-        self.y += origin.y
+        x += origin.x
+        y += origin.y
     }
     
     func addX(x: CGFloat) {
@@ -79,8 +79,8 @@ extension UIView {
     }
     
     func addSize(size: CGSize) {
-        self.width += size.width
-        self.height += size.height
+        width += size.width
+        height += size.height
     }
     
     func addWidth(width: CGFloat) {

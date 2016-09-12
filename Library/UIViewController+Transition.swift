@@ -21,8 +21,8 @@ extension UIViewController {
     // MARK: - PresentViewController
     
     func presentViewControllerForNavigation(viewController: UIViewController, transitionType: UIViewTransitionType, completion: (UIViewController) -> Void) {
-        let navigationController = UINavigationController.init(rootViewController: viewController)
-        self.presentViewController(navigationController, transitionType: transitionType, completion: completion)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        presentViewController(navigationController, transitionType: transitionType, completion: completion)
     }
     
     func presentViewController(viewController: UIViewController, transitionType: UIViewTransitionType, completion: (UIViewController) -> Void) {
@@ -32,14 +32,14 @@ extension UIViewController {
             animated = true
             viewController.modalTransitionStyle = .CoverVertical
         case .Push:
-            self.view.window?.layer.addAnimation(UIViewController.transition(transitionType, on: true), forKey: nil)
+            view.window?.layer.addAnimation(UIViewController.transition(transitionType, on: true), forKey: nil)
         case .CrossDissolve:
             animated = true
             viewController.modalTransitionStyle = .CrossDissolve
         default:
             break;
         }
-        self.presentViewController(viewController, animated: animated) { [unowned self] in
+        presentViewController(viewController, animated: animated) { [unowned self] in
             completion(self)
         }
     }
@@ -49,16 +49,16 @@ extension UIViewController {
         switch transitionType {
         case .Present:
             animated = true
-            self.modalTransitionStyle = .CoverVertical
+            modalTransitionStyle = .CoverVertical
         case .Push:
-            self.view.window?.layer.addAnimation(UIViewController.transition(transitionType, on: false), forKey: nil)
+            view.window?.layer.addAnimation(UIViewController.transition(transitionType, on: false), forKey: nil)
         case .CrossDissolve:
             animated = true
-            self.modalTransitionStyle = .CrossDissolve
+            modalTransitionStyle = .CrossDissolve
         default:
             break;
         }
-        self.dismissViewControllerAnimated(animated) {
+        dismissViewControllerAnimated(animated) {
             completion(self)
         }
     }
@@ -66,7 +66,7 @@ extension UIViewController {
     // MARK: - PushViewController
     
     func pushViewController(viewController: UIViewController, transitionType: UIViewTransitionType) {
-        if let navigationController = self.navigationController {
+        if let navigationController = navigationController {
             var animated = false
             switch transitionType {
             case .Present, .CrossDissolve:
@@ -81,7 +81,7 @@ extension UIViewController {
     }
     
     func popViewController(transitionType: UIViewTransitionType) {
-        if let navigationController = self.navigationController {
+        if let navigationController = navigationController {
             var animated = false
             switch transitionType {
             case .Present, .CrossDissolve:
@@ -96,7 +96,7 @@ extension UIViewController {
     }
     
     func popToViewController(viewController: UIViewController, transitionType: UIViewTransitionType) {
-        if let navigationController = self.navigationController {
+        if let navigationController = navigationController {
             var animated = false
             switch transitionType {
             case .Present, .CrossDissolve:
@@ -111,7 +111,7 @@ extension UIViewController {
     }
     
     func popToRootViewController(transitionType: UIViewTransitionType) {
-        if let navigationController = self.navigationController {
+        if let navigationController = navigationController {
             var animated = false
             switch transitionType {
             case .Present, .CrossDissolve:
@@ -128,9 +128,9 @@ extension UIViewController {
     // MARK: - Private
     
     static private func transition(transitionType: UIViewTransitionType, on: Bool) -> CATransition {
-        let transition = CATransition.init();
+        let transition = CATransition();
         transition.duration = 0.3
-        transition.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         switch transitionType {
         case .Present:
             transition.type = kCATransitionMoveIn

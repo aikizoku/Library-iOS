@@ -12,8 +12,8 @@ extension NSDate {
     
     // Stringに変換する
     func toString(format: String) -> NSString {
-        let fmt = NSDateFormatter.init()
-        fmt.locale = NSLocale.init(localeIdentifier: "en_US_POSIX")
+        let fmt = NSDateFormatter()
+        fmt.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         fmt.dateFormat = format
         return fmt.stringFromDate(self) ?? ""
     }

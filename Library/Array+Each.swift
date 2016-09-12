@@ -18,7 +18,7 @@ extension Array {
      })
      ```
      */
-    func each(closure: (element: Element) -> Void) {
+    func each(e closure: (element: Element) -> Void) {
         for element in self {
             closure(element: element)
         }
@@ -32,7 +32,7 @@ extension Array {
      })
      ```
      */
-    func each(closure: (i: Int, element: Element) -> Void) {
+    func each(ie closure: (i: Int, element: Element) -> Void) {
         let c = count
         for i in 0 ..< c {
             closure(i: i, element: self[i])
@@ -52,7 +52,7 @@ extension Array {
      })
      ```
      */
-    func each(closure: (first: Bool, last: Bool, element: Element) -> Void) {
+    func each(fle closure: (first: Bool, last: Bool, element: Element) -> Void) {
         let c = count
         let mi = c - 1
         for i in 0 ..< c {

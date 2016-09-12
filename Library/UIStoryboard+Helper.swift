@@ -11,8 +11,12 @@ import UIKit
 
 extension UIStoryboard {
     
-    static func storyboard(name: String) -> UIStoryboard {
-        return UIStoryboard.init(name: name, bundle: NSBundle.mainBundle())
+    static func instantiateViewControllerWithIdentifier<T>(storyboardName name: String, identifier: String) -> T? {
+        if let viewController = UIStoryboard(name: name, bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(identifier) as? T {
+            return viewController
+        } else {
+            return nil
+        }
     }
 }
 

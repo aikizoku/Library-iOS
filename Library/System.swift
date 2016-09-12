@@ -12,14 +12,14 @@ import SafariServices
 class System: NSObject {
     
     // iPhoneか判別
-    let isPhone = { () -> Bool in
+    static let isPhone = { () -> Bool in
         return UIDevice.currentDevice().userInterfaceIdiom == .Phone
-    }
+    }()
     
     // iPadか判別
-    let isPad = { () -> Bool in
+    static let isPad = { () -> Bool in
         return UIDevice.currentDevice().userInterfaceIdiom == .Pad
-    }
+    }()
     
     // 端末の名前（プラットフォームコード）を取得する
     static func deviceName() -> String {
@@ -62,10 +62,10 @@ class System: NSObject {
     
     // 端末のタイムゾーンを取得する
     static func timeZone() -> String {
-        let fmt = NSDateFormatter.init()
+        let fmt = NSDateFormatter()
         fmt.timeZone = NSTimeZone.defaultTimeZone()
         fmt.dateFormat = "ZZZ"
-        return fmt.stringFromDate(NSDate.init())
+        return fmt.stringFromDate(NSDate())
     }
     
     // リモートプッシュ通知を登録する
@@ -91,7 +91,7 @@ class System: NSObject {
     
     // 外部アプリがインストールされているか判定する
     static func isOpenExternalApp(urlScheme: String) -> Bool {
-        if let url = NSURL.init(string: urlScheme) {
+        if let url = NSURL(string: urlScheme) {
             return UIApplication.sharedApplication().canOpenURL(url)
         } else {
             return false
@@ -100,23 +100,23 @@ class System: NSObject {
     
     // 外部アプリを開く
     static func openExternalApp(urlScheme: String) {
-        if let url = NSURL.init(string: urlScheme) {
+        if let url = NSURL(string: urlScheme) {
             UIApplication.sharedApplication().openURL(url)
         }
     }
     
     // URLをSafariで開く
     static func openSafari(url: String) {
-        if let u = NSURL.init(string: url) {
+        if let u = NSURL(string: url) {
             UIApplication.sharedApplication().openURL(u)
         }
     }
     
     // URLをSafariView(iOS8はSafari)で開く
     static func openSafariView(parentViewController: UIViewController, url: String) {
-        if let u = NSURL.init(string: url) {
+        if let u = NSURL(string: url) {
             if #available(iOS 9.0, *) {
-                let viewController = SFSafariViewController.init(URL: u, entersReaderIfAvailable: true)
+                let viewController = SFSafariViewController(URL: u, entersReaderIfAvailable: true)
                 parentViewController.presentViewController(viewController, animated: true, completion: nil)
             } else {
                 UIApplication.sharedApplication().openURL(u)

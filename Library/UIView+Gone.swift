@@ -15,10 +15,10 @@ extension UIView: HasAssociatedObjects {
     
     private var goneConstraint: NSLayoutConstraint? {
         get {
-            return self.associatedObjects["goneConstraint"] as? NSLayoutConstraint
+            return associatedObjects["goneConstraint"] as? NSLayoutConstraint
         }
         set {
-            self.associatedObjects["goneConstraint"] = newValue
+            associatedObjects["goneConstraint"] = newValue
         }
     }
     
@@ -27,7 +27,7 @@ extension UIView: HasAssociatedObjects {
             return goneConstraint == nil
         }
         set {
-            if newValue && self.goneConstraint == nil {
+            if newValue && goneConstraint == nil {
                 let goneConstraint =
                     NSLayoutConstraint(item: self,
                                        attribute: .Height,
@@ -37,11 +37,13 @@ extension UIView: HasAssociatedObjects {
                                        multiplier: 1,
                                        constant: 0)
                 
-                self.addConstraint(goneConstraint)
+                addConstraint(goneConstraint)
                 self.goneConstraint = goneConstraint
-            } else if self.goneConstraint != nil {
-                self.removeConstraint(self.goneConstraint!)
-                self.goneConstraint = nil
+                hidden = true
+            } else if goneConstraint != nil {
+                removeConstraint(goneConstraint!)
+                goneConstraint = nil
+                hidden = false
             }
         }
     }

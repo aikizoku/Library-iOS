@@ -29,10 +29,10 @@ class AssociatedObjects: NSObject {
     var dictionary: [String: Any] = [:]
     subscript(key: String) -> Any? {
         get {
-            return self.dictionary[key]
+            return dictionary[key]
         }
         set {
-            self.dictionary[key] = newValue
+            dictionary[key] = newValue
         }
     }
 }

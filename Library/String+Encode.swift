@@ -12,11 +12,11 @@ extension String {
     
     // URLエンコードする
     func urlEncode() -> String {
-        return self.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()) ?? self
+        return stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()) ?? self
     }
     
     // URLデコードする
     func urlDecode() -> String {
-        return self.stringByRemovingPercentEncoding ?? self
+        return stringByRemovingPercentEncoding ?? self
     }
 }

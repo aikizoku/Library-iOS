@@ -14,7 +14,7 @@ extension UIView {
     static func instance<T>(nibName nibName: String) -> T? {
         let views = UINib(nibName: nibName, bundle: nil).instantiateWithOwner(nil, options: nil)
         var view: T?
-        views.each({ (element: AnyObject) in
+        views.each(e: { (element: AnyObject) in
             if element.dynamicType === self {
                 view = element as? T
             }

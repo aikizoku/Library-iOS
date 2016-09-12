@@ -26,7 +26,7 @@ extension String {
     
     // 数値かどうか判定する
     func isNumeric() -> Bool {
-        let sc = NSScanner.init(string: self)
+        let sc = NSScanner(string: self)
         sc.locale = NSLocale.currentLocale()
         return sc.scanDecimal(nil) && sc.atEnd
     }

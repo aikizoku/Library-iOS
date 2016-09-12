@@ -11,7 +11,7 @@ import Foundation
 extension Dictionary {
     
     func getString(key: Key) -> String {
-        return self.getString(key, defaultValue: "")
+        return getString(key, defaultValue: "")
     }
     
     func getString(key: Key, defaultValue: String) -> String {
@@ -43,7 +43,7 @@ extension Dictionary {
     }
     
     func getBool(key: Key) -> Bool {
-        return self.getBool(key, defaultValue: false)
+        return getBool(key, defaultValue: false)
     }
     
     func getBool(key: Key, defaultValue: Bool) -> Bool {
@@ -66,7 +66,7 @@ extension Dictionary {
     }
     
     func getArray<AnyObject>(key: Key) -> Array<AnyObject> {
-        return self.getArray(key, defaultValue: [])
+        return getArray(key, defaultValue: [])
     }
     
     func getArray<AnyObject>(key: Key, defaultValue: Array<AnyObject>) -> Array<AnyObject> {
@@ -74,7 +74,7 @@ extension Dictionary {
     }
     
     func getDictionary<String, AnyObject>(key: Key) -> Dictionary<String, AnyObject> {
-        return self.getDictionary(key, defaultValue: [:])
+        return getDictionary(key, defaultValue: [:])
     }
     
     func getDictionary<String, AnyObject>(key: Key, defaultValue: Dictionary<String, AnyObject>) -> Dictionary<String, AnyObject> {

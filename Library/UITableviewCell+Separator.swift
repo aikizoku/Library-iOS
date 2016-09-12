@@ -13,10 +13,10 @@ extension UITableViewCell {
     
     private var separatorView: UIView? {
         get {
-            return self.associatedObjects["separatorView"] as? UIView
+            return associatedObjects["separatorView"] as? UIView
         }
         set {
-            self.associatedObjects["separatorView"] = newValue
+            associatedObjects["separatorView"] = newValue
         }
     }
     
@@ -26,7 +26,7 @@ extension UITableViewCell {
             return self.separatorColor ?? UIColor.lightGrayColor()
         }
         set {
-            self.associatedObjects["separatorColor"] = newValue
+            associatedObjects["separatorColor"] = newValue
         }
     }
     
@@ -38,15 +38,15 @@ extension UITableViewCell {
         set {
             self.separator = newValue
             if newValue {
-                if self.separatorView == nil {
+                if separatorView == nil {
                     let separatorView: UIView = UIView.init()
-                    separatorView.backgroundColor = self.separatorColor
+                    separatorView.backgroundColor = separatorColor
                     separatorView.addConstraint(
                         NSLayoutConstraint(
                             item: separatorView,
                             attribute: .Leading,
                             relatedBy: .Equal,
-                            toItem: self.contentView,
+                            toItem: contentView,
                             attribute: .Leading,
                             multiplier: 1.0,
                             constant: 0))
@@ -55,7 +55,7 @@ extension UITableViewCell {
                             item: separatorView,
                             attribute: .Bottom,
                             relatedBy: .Equal,
-                            toItem: self.contentView,
+                            toItem: contentView,
                             attribute: .Bottom,
                             multiplier: 1.0,
                             constant: 0))
@@ -64,7 +64,7 @@ extension UITableViewCell {
                             item: separatorView,
                             attribute: .Trailing,
                             relatedBy: .Equal,
-                            toItem: self.contentView,
+                            toItem: contentView,
                             attribute: .Trailing,
                             multiplier: 1.0,
                             constant: 0))
@@ -77,13 +77,13 @@ extension UITableViewCell {
                             attribute: .Height,
                             multiplier: 1.0,
                             constant: 1))
-                    self.contentView.addSubview(separatorView)
+                    contentView.addSubview(separatorView)
                     self.separatorView = separatorView
                 }
             } else {
-                if self.separatorView != nil {
-                    self.separatorView!.removeFromSuperview()
-                    self.separatorView = nil
+                if separatorView != nil {
+                    separatorView!.removeFromSuperview()
+                    separatorView = nil
                 }
             }
         }
