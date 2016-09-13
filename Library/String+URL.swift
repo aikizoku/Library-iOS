@@ -1,5 +1,5 @@
 //
-//  String+Encode.swift
+//  String+URL.swift
 //  Library
 //
 //  Created by Yuki Hirose on 2016/09/07.
@@ -9,6 +9,11 @@
 import Foundation
 
 extension String {
+    
+    // URLに変換する
+    func toUrl() -> NSURL {
+        return NSURL(string: self) ?? NSURL()
+    }
     
     // URLエンコードする
     func urlEncode() -> String {

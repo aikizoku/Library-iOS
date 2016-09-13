@@ -1,5 +1,5 @@
 //
-//  String+Parse.swift
+//  String+Date.swift
 //  Library
 //
 //  Created by Yuki Hirose on 2016/09/07.

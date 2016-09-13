@@ -11,8 +11,8 @@ import Foundation
 extension Range {
     
     func toNSRange() -> NSRange {
-        let s = Int(String(self.startIndex))!
-        let e = Int(String(self.endIndex))!
+        let s = Int(String(startIndex))!
+        let e = Int(String(endIndex))!
         return NSMakeRange(s, e - s)
     }
 }
