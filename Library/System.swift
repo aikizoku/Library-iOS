@@ -11,17 +11,23 @@ import SafariServices
 
 class System: NSObject {
     
-    // iPhoneか判別
+    /**
+     iPhoneか判定する
+     */
     static let isPhone = { () -> Bool in
         return UIDevice.currentDevice().userInterfaceIdiom == .Phone
     }()
     
-    // iPadか判別
+    /**
+     iPadか判定する
+     */
     static let isPad = { () -> Bool in
         return UIDevice.currentDevice().userInterfaceIdiom == .Pad
     }()
     
-    // 端末の名前（プラットフォームコード）を取得する
+    /**
+     端末の名前（プラットフォームコード）を取得する
+     */
     static func deviceName() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)
@@ -35,40 +41,54 @@ class System: NSObject {
         return identifier
     }
     
-    // 端末のOSバージョンを取得する
+    /**
+     端末のOSバージョンを取得する
+     */
     static func osVersion() -> String {
         return UIDevice.currentDevice().systemVersion
     }
     
-    // アプリの識別子を取得する
+    /**
+     アプリの識別子を取得する
+     */
     static func bundleIdentifier() -> String {
         return NSBundle.mainBundle().bundleIdentifier ?? ""
     }
     
-    // ビルドのバージョンを取得する
+    /**
+     ビルドのバージョンを取得する
+     */
     static func buildVersion() -> String {
         return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as? String ?? ""
     }
     
-    // アプリのバージョンを取得する
+    /**
+     アプリのバージョンを取得する
+     */
     static func appVersion() -> String {
         return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String ?? ""
     }
     
-    // 端末の言語を取得する
-    static func language() -> String {
+    /**
+     現在設定されている端末の言語を取得する
+     */
+    static func currentLanguage() -> String {
         return NSLocale.preferredLanguages().first ?? ""
     }
     
-    // 端末のタイムゾーンを取得する
-    static func timeZone() -> String {
+    /**
+     現在設定されている端末のタイムゾーンを取得する
+     */
+    static func currentTimeZone() -> String {
         let fmt = NSDateFormatter()
         fmt.timeZone = NSTimeZone.defaultTimeZone()
         fmt.dateFormat = "ZZZ"
         return fmt.stringFromDate(NSDate())
     }
     
-    // リモートプッシュ通知を登録する
+    /**
+     リモートプッシュ通知を登録する
+     */
     static func registerRemotePushNotification() {
         let types: UIUserNotificationType = [.Badge, .Sound, .Alert]
         let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
@@ -77,19 +97,25 @@ class System: NSObject {
         application.registerForRemoteNotifications()
     }
     
-    // プッシュ通知が有効か判定する
+    /**
+     端末のプッシュ通知設定が有効か判定する
+     */
     static func isEnablePushNotification() -> Bool {
         return UIApplication.sharedApplication().isRegisteredForRemoteNotifications()
     }
     
-    // プッシュ通知設定画面に遷移する
+    /**
+     プッシュ通知設定画面に遷移する
+     */
     static func openPushNotificationSetting() {
         if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
             UIApplication.sharedApplication().openURL(url)
         }
     }
     
-    // 外部アプリがインストールされているか判定する
+    /**
+     指定した外部アプリがインストールされているか判定する
+     */
     static func isOpenExternalApp(urlScheme: String) -> Bool {
         if let url = NSURL(string: urlScheme) {
             return UIApplication.sharedApplication().canOpenURL(url)
@@ -98,21 +124,27 @@ class System: NSObject {
         }
     }
     
-    // 外部アプリを開く
+    /**
+     外部アプリを開く
+     */
     static func openExternalApp(urlScheme: String) {
         if let url = NSURL(string: urlScheme) {
             UIApplication.sharedApplication().openURL(url)
         }
     }
     
-    // URLをSafariで開く
+    /**
+     // URLをSafariで開く
+     */
     static func openSafari(url: String) {
         if let u = NSURL(string: url) {
             UIApplication.sharedApplication().openURL(u)
         }
     }
     
-    // URLをSafariView(iOS8はSafari)で開く
+    /**
+     URLをSafariView(iOS8はSafari)で開く
+     */
     static func openSafariView(parentViewController: UIViewController, url: String) {
         if let u = NSURL(string: url) {
             if #available(iOS 9.0, *) {
