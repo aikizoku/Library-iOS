@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE088D421D8B0F2E00C33900 /* Array+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE088D411D8B0F2E00C33900 /* Array+Util.swift */; };
 		AEA98FEB1D89C1A300A2786C /* Array+Each.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA98FD01D89C1A300A2786C /* Array+Each.swift */; };
 		AEA98FEC1D89C1A300A2786C /* Array+Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA98FD11D89C1A300A2786C /* Array+Shuffle.swift */; };
 		AEA98FED1D89C1A300A2786C /* Dictionary+Each.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA98FD21D89C1A300A2786C /* Dictionary+Each.swift */; };
@@ -47,6 +48,7 @@
 		69904ACF86B9D334630CCC13 /* Pods-LibrarySample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LibrarySample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LibrarySample/Pods-LibrarySample.debug.xcconfig"; sourceTree = "<group>"; };
 		89130835B1323EE64A10A89C /* Pods-LibrarySample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LibrarySample.release.xcconfig"; path = "Pods/Target Support Files/Pods-LibrarySample/Pods-LibrarySample.release.xcconfig"; sourceTree = "<group>"; };
 		9D50907356A1FD0A9CEA64E0 /* Pods_LibrarySample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LibrarySample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE088D411D8B0F2E00C33900 /* Array+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Util.swift"; sourceTree = "<group>"; };
 		AEA98FD01D89C1A300A2786C /* Array+Each.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Each.swift"; sourceTree = "<group>"; };
 		AEA98FD11D89C1A300A2786C /* Array+Shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Shuffle.swift"; sourceTree = "<group>"; };
 		AEA98FD21D89C1A300A2786C /* Dictionary+Each.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Each.swift"; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				AEA98FD01D89C1A300A2786C /* Array+Each.swift */,
 				AEA98FD11D89C1A300A2786C /* Array+Shuffle.swift */,
+				AE088D411D8B0F2E00C33900 /* Array+Util.swift */,
 				AEA98FD21D89C1A300A2786C /* Dictionary+Each.swift */,
 				AEA98FD31D89C1A300A2786C /* Dictionary+Safe.swift */,
 				AEA98FD41D89C1A300A2786C /* Double+Delay.swift */,
@@ -331,6 +334,7 @@
 				AEA990021D89C1A300A2786C /* UIView+Frame.swift in Sources */,
 				AEA98FF31D89C1A300A2786C /* Math.swift in Sources */,
 				AEA990051D89C1A300A2786C /* UIViewController+Transition.swift in Sources */,
+				AE088D421D8B0F2E00C33900 /* Array+Util.swift in Sources */,
 				AEA98FF91D89C1A300A2786C /* String+Date.swift in Sources */,
 				AEA98FF71D89C1A300A2786C /* Range+Parse.swift in Sources */,
 			);
