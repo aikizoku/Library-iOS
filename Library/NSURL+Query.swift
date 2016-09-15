@@ -10,7 +10,9 @@ import Foundation
 
 extension NSURL {
     
-    // Queryを分解する
+    /**
+     QueryをDictionaryに分解する
+     */
     var queryParams: [String : String] {
         var results: [String : String] = [:]
         guard let urlComponents = NSURLComponents(string: absoluteString!), let items = urlComponents.queryItems else {

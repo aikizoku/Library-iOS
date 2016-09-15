@@ -1,13 +1,16 @@
 //
 //  HasAssociatedObjects.swift
-//  moonshot
+//  Library
 //
-//  Created by Yuki Hirose on 2016/09/01.
-//  Copyright © 2016年 Yuki Hirose. All rights reserved.
+//  Created by Yuki Hirose on 2016/09/06.
+//  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
 import Foundation
 
+/**
+ extensionでStored Propertyを使うための黒魔術
+ */
 protocol HasAssociatedObjects {
     var associatedObjects: AssociatedObjects { get }
 }

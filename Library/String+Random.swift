@@ -10,7 +10,9 @@ import Foundation
 
 extension String {
     
-    // ランダム文字列(0~0,a~z,A~Z)を生成する
+    /**
+     指定の長さのランダム文字列(0~0,a~z,A~Z)を生成する
+     */
     static func rand(length: Int) -> String {
         let alphabet = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         let upperBound = UInt32(alphabet.characters.count)

@@ -10,17 +10,26 @@ import Foundation
 
 extension String {
     
-    // URLに変換する
+    /**
+     文字列をURLに変換する
+     失敗したらダミーURLオブジェクトを返す
+     */
     func toUrl() -> NSURL {
-        return NSURL(string: self) ?? NSURL()
+        return NSURL(string: self) ?? NSURL(string: "http://example.com/")!
     }
-    
-    // URLエンコードする
+
+    /**
+     文字列をURLエンコードする
+     失敗したら元の文字列を返す
+     */
     func urlEncode() -> String {
         return stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()) ?? self
     }
     
-    // URLデコードする
+    /**
+     文字列をURLデコードする
+     失敗したら元の文字列を返す
+     */
     func urlDecode() -> String {
         return stringByRemovingPercentEncoding ?? self
     }

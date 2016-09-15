@@ -10,6 +10,9 @@ import Foundation
 
 extension Int {
     
+    /**
+     指定回数だけ繰り返す
+     */
     func each(closure: (i: Int) -> Void) {
         for i in 0 ..< self {
             closure(i: i)

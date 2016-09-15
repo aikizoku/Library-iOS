@@ -10,7 +10,9 @@ import Foundation
 
 extension NSDate {
     
-    // Stringに変換する
+    /**
+     フォーマットを指定して、西暦or和暦に影響されずにStringに変換する
+     */
     func toString(format: String) -> NSString {
         let fmt = NSDateFormatter()
         fmt.locale = NSLocale(localeIdentifier: "en_US_POSIX")

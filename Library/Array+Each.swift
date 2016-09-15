@@ -12,11 +12,6 @@ extension Array {
     
     /**
      要素を順番に渡しながら繰り返す
-     - parameter closure: 各要素に対して実行するクロージャ
-     ```
-     hoges.each({ hoge in
-     })
-     ```
      */
     func each(e closure: (element: Element) -> Void) {
         for element in self {
@@ -26,11 +21,6 @@ extension Array {
     
     /**
      要素とインデックスを順番に渡しながら繰り返す
-     - parameter closure: 各要素に対して実行するクロージャ
-     ```
-     hoges.each({ i, hoge in
-     })
-     ```
      */
     func each(ie closure: (i: Int, element: Element) -> Void) {
         let c = count
@@ -41,16 +31,6 @@ extension Array {
     
     /**
      要素と初回判定と最後判定を順番に渡しながら繰り返す
-     - parameter closure: 各要素に対して実行するクロージャ
-     ```
-     hoges.each({ first, last, hoge in
-     if first {
-     }
-     if last {
-     }
-     println(hoge)
-     })
-     ```
      */
     func each(fle closure: (first: Bool, last: Bool, element: Element) -> Void) {
         let c = count

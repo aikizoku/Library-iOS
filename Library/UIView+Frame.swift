@@ -11,6 +11,9 @@ import UIKit
 
 extension UIView {
     
+    /**
+     Viewのoriginを直接指定する
+     */
     var origin: CGPoint {
         get {
             return frame.origin
@@ -20,6 +23,9 @@ extension UIView {
         }
     }
     
+    /**
+     Viewのxを直接指定する
+     */
     var x: CGFloat {
         get {
             return frame.origin.x
@@ -29,6 +35,9 @@ extension UIView {
         }
     }
     
+    /**
+     Viewのyを直接指定する
+     */
     var y: CGFloat {
         get {
             return frame.origin.y
@@ -38,6 +47,9 @@ extension UIView {
         }
     }
     
+    /**
+     Viewのsizeを直接指定する
+     */
     var size: CGSize {
         get {
             return frame.size
@@ -47,6 +59,9 @@ extension UIView {
         }
     }
     
+    /**
+     Viewのwidthを直接指定する
+     */
     var width: CGFloat {
         get {
             return frame.size.width
@@ -56,6 +71,9 @@ extension UIView {
         }
     }
     
+    /**
+     Viewのheightを直接指定する
+     */
     var height: CGFloat {
         get {
             return frame.size.height
@@ -65,28 +83,46 @@ extension UIView {
         }
     }
     
+    /**
+     Viewのoriginを加算する
+     */
     func addOrigin(origin: CGPoint) {
         x += origin.x
         y += origin.y
     }
     
+    /**
+     Viewのxを加算する
+     */
     func addX(x: CGFloat) {
         self.x += x
     }
     
+    /**
+     Viewのyを加算する
+     */
     func addY(y: CGFloat) {
         self.y += y
     }
     
+    /**
+     Viewのsizeを加算する
+     */
     func addSize(size: CGSize) {
         width += size.width
         height += size.height
     }
     
+    /**
+     Viewのwidthを加算する
+     */
     func addWidth(width: CGFloat) {
         self.width += width
     }
     
+    /**
+     Viewのheightを加算する
+     */
     func addHeight(height: CGFloat) {
         self.height += height
     }

@@ -1,9 +1,9 @@
 //
 //  UIViewController+Transition.swift
-//  moonshot
+//  Library
 //
-//  Created by Yuki Hirose on 2016/09/05.
-//  Copyright © 2016年 Yuki Hirose. All rights reserved.
+//  Created by Yuki Hirose on 2016/09/06.
+//  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
 import Foundation

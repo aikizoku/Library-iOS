@@ -1,9 +1,9 @@
 //
 //  UIView+Gone.swift
-//  moonshot
+//  Library
 //
-//  Created by Yuki Hirose on 2016/09/02.
-//  Copyright © 2016年 Yuki Hirose. All rights reserved.
+//  Created by Yuki Hirose on 2016/09/06.
+//  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
 import Foundation
@@ -13,6 +13,9 @@ import Foundation
 
 extension UIView: HasAssociatedObjects {
     
+    /**
+     AndroidのView.GONE（hiddenしてトルツメ）を再現する
+     */
     private var goneConstraint: NSLayoutConstraint? {
         get {
             return associatedObjects["goneConstraint"] as? NSLayoutConstraint

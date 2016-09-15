@@ -1,9 +1,9 @@
 //
 //  NSMutableAttributedString+Easy.swift
-//  moonshot
+//  Library
 //
-//  Created by Yuki Hirose on 2016/08/19.
-//  Copyright © 2016年 Yuki Hirose. All rights reserved.
+//  Created by Yuki Hirose on 2016/09/06.
+//  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
 import Foundation
@@ -11,18 +11,24 @@ import UIKit
 
 extension NSMutableAttributedString {
     
-    // 全範囲を取得
+    /**
+     文字列の全範囲を取得する
+     */
     func allRange() -> NSRange {
         return NSRange(location: 0, length: length)
     }
     
-    // 文字列を追加
+    /**
+     文字列を追加する
+     */
     func appendString(string: String) {
         let string: NSMutableAttributedString = NSMutableAttributedString(string: string)
         appendAttributedString(string)
     }
     
-    // フォントを設定
+    /**
+     フォントを設定する
+     */
     func setFont(font: UIFont) {
         setFont(font, range: allRange())
     }
@@ -33,7 +39,9 @@ extension NSMutableAttributedString {
                      range: range)
     }
     
-    // カラーを設定
+    /**
+     カラーを設定する
+     */
     func setColor(color: UIColor) {
         setColor(color, range: allRange())
     }
@@ -44,7 +52,9 @@ extension NSMutableAttributedString {
                      range: range)
     }
     
-    // 画像を追加
+    /**
+     画像を追加する
+     */
     func appendImage(image aImage: UIImage) {
         appendImage(image: aImage,
                     bounds: CGRect(origin: CGPointZero, size: aImage.size))
@@ -67,7 +77,9 @@ extension NSMutableAttributedString {
         appendAttributedString(NSAttributedString(attachment: attachment))
     }
     
-    // 文字列間隔を設定
+    /**
+     文字列感覚を設定する
+     */
     func setLineSpace(lineSpace: CGFloat) {
         let paragraphStyle: NSMutableParagraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = lineSpace

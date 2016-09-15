@@ -1,9 +1,9 @@
 //
 //  UIStoryboard+Helper.swift
-//  moonshot
+//  Library
 //
-//  Created by Yuki Hirose on 2016/09/01.
-//  Copyright © 2016年 Yuki Hirose. All rights reserved.
+//  Created by Yuki Hirose on 2016/09/06.
+//  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
 import Foundation
@@ -11,12 +11,14 @@ import UIKit
 
 extension UIStoryboard {
     
+    /**
+     instantiateViewControllerWithIdentifierの短縮
+     */
     static func instantiateViewControllerWithIdentifier<T>(storyboardName name: String, identifier: String) -> T? {
-        if let viewController = UIStoryboard(name: name, bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(identifier) as? T {
-            return viewController
-        } else {
+        guard let viewController = UIStoryboard(name: name, bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(identifier) as? T else {
             return nil
         }
+        return viewController
     }
 }
 

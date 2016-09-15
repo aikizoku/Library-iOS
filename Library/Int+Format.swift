@@ -1,15 +1,18 @@
 //
 //  Int+Format.swift
-//  moonshot
+//  Library
 //
-//  Created by Yuki Hirose on 2016/09/13.
-//  Copyright © 2016年 Yuki Hirose. All rights reserved.
+//  Created by Yuki Hirose on 2016/09/06.
+//  Copyright © 2016年 yukithehero. All rights reserved.
 //
 
 import Foundation
 
 extension Int {
     
+    /**
+     数値を３桁カンマ区切りにする
+     */
     func thousandSeparator() -> String {
         let fmt = NSNumberFormatter()
         fmt.numberStyle = .DecimalStyle

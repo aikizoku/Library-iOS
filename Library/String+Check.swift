@@ -10,21 +10,26 @@ import Foundation
 
 extension String {
     
-    // 空文字判定
+    /**
+     空文字でないか判定する
+     */
     func isNotEmpty(string: String) -> Bool {
         return !string.isEmpty
     }
     
-    // nil判定 && 空文字判定
+    /**
+     nilでもなく、空文字でもないか判定する
+     */
     static func isNotNilEmpty(string: String?) -> Bool {
-        if let string = string {
-            return !string.isEmpty
-        } else {
+        guard let string = string else {
             return false
         }
+        return !string.isEmpty
     }
     
-    // 数値かどうか判定する
+    /**
+     数値かどうか判定する
+     */
     func isNumeric() -> Bool {
         let sc = NSScanner(string: self)
         sc.locale = NSLocale.currentLocale()

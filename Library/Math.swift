@@ -10,7 +10,9 @@ import Foundation
 
 class Math: NSObject {
     
-    // valueをminからmaxの範囲に収めた結果を返す
+    /**
+     valueをminからmaxの範囲に収めた結果を返す
+     */
     static func clampInt(value: Int, min: Int, max: Int) -> Int {
         return (value < min) ? min : ((max < value) ? max : value)
     }
@@ -23,7 +25,9 @@ class Math: NSObject {
         return (value < min) ? min : ((max < value) ? max : value)
     }
     
-    // valueがminからmaxの範囲にあるかどうかを返す
+    /**
+     valueがminからmaxの範囲にあるかどうかを返す
+     */
     static func insideInt(value: Int, min: Int, max: Int) -> Bool {
         return (min <= value) && (value <= max)
     }
@@ -36,7 +40,9 @@ class Math: NSObject {
         return (min <= value) && (value <= max)
     }
 
-    // minからmaxの範囲で乱数を返す
+    /**
+     minからmaxの範囲で乱数を返す
+     */
     static func randInt(min min: Int, max: Int) -> Int {
         return Int(arc4random_uniform(UInt32(max - min + 1))) + min
     }
@@ -49,12 +55,16 @@ class Math: NSObject {
         return (Double(arc4random_uniform(UINT32_MAX)) / Double(UINT32_MAX)) * (max - min) + min
     }
     
-    // ランダムな真偽値を返す
+    /**
+     ランダムな真偽値を返す
+     */
     static func randBool() -> Bool {
         return self.randInt(min:0, max: 1) == 1
     }
     
-    // 百分率でランダムな真偽値を返す
+    /**
+     百分率でランダムな真偽値を返す
+     */
     static func randBool(percent: Int) -> Bool {
         return self.randInt(min:0, max: 100) < percent
     }
