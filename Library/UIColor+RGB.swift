@@ -28,7 +28,11 @@ extension UIColor {
     /**
      カラーコードからUIColorを生成する
      */
-    static func color(hex: String) -> UIColor {
+    static func color(hex hex: String) -> UIColor {
+        return color(hex: hex, alpha: 1)
+    }
+    
+    static func color(hex hex: String, alpha: Float) -> UIColor {
         var hex = hex.stringByReplacingOccurrencesOfString("#", withString: "")
         hex = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         hex = hex.uppercaseString
@@ -45,6 +49,6 @@ extension UIColor {
         NSScanner(string: rStr).scanHexInt(&r)
         NSScanner(string: gStr).scanHexInt(&g)
         NSScanner(string: bStr).scanHexInt(&b)
-        return color(r: Int(r), g: Int(g), b: Int(b))
+        return color(r: Int(r), g: Int(g), b: Int(b), a: alpha)
     }
 }

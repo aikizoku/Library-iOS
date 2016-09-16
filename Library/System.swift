@@ -134,7 +134,7 @@ class System: NSObject {
     }
     
     /**
-     // URLをSafariで開く
+     URLをSafariで開く
      */
     static func openSafari(url: String) {
         if let u = NSURL(string: url) {
@@ -155,4 +155,26 @@ class System: NSObject {
             }
         }
     }
+    
+    /**
+     画面サイズを取得する
+     */
+    static func screenSize() -> CGSize {
+        return UIScreen.mainScreen().bounds.size
+    }
+    
+    /**
+     画面の幅を取得する
+     */
+    static func screenWidth() -> CGFloat {
+        return screenSize().width
+    }
+    
+    /**
+     画面の高さを取得する
+     */
+    static func screenHeight() -> CGFloat {
+        return screenSize().height
+    }
+    
 }
