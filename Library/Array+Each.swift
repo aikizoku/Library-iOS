@@ -34,10 +34,10 @@ extension Array {
      */
     func each(fle closure: (first: Bool, last: Bool, element: Element) -> Void) {
         let c = count
-        let mi = c - 1
+        let li = lastIndex
         for i in 0 ..< c {
             let first = i == 0
-            let last = i == mi
+            let last = i == li
             closure(first: first, last: last, element: self[i])
         }
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AE088D421D8B0F2E00C33900 /* Array+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE088D411D8B0F2E00C33900 /* Array+Util.swift */; };
+		AE71EA7B1D917C620001E58C /* UITableViewCell+Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71EA7A1D917C620001E58C /* UITableViewCell+Separator.swift */; };
 		AEA98FEB1D89C1A300A2786C /* Array+Each.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA98FD01D89C1A300A2786C /* Array+Each.swift */; };
 		AEA98FEC1D89C1A300A2786C /* Array+Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA98FD11D89C1A300A2786C /* Array+Shuffle.swift */; };
 		AEA98FED1D89C1A300A2786C /* Dictionary+Each.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA98FD21D89C1A300A2786C /* Dictionary+Each.swift */; };
@@ -49,6 +50,7 @@
 		89130835B1323EE64A10A89C /* Pods-LibrarySample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LibrarySample.release.xcconfig"; path = "Pods/Target Support Files/Pods-LibrarySample/Pods-LibrarySample.release.xcconfig"; sourceTree = "<group>"; };
 		9D50907356A1FD0A9CEA64E0 /* Pods_LibrarySample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LibrarySample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE088D411D8B0F2E00C33900 /* Array+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Util.swift"; sourceTree = "<group>"; };
+		AE71EA7A1D917C620001E58C /* UITableViewCell+Separator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Separator.swift"; sourceTree = "<group>"; };
 		AEA98FD01D89C1A300A2786C /* Array+Each.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Each.swift"; sourceTree = "<group>"; };
 		AEA98FD11D89C1A300A2786C /* Array+Shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Shuffle.swift"; sourceTree = "<group>"; };
 		AEA98FD21D89C1A300A2786C /* Dictionary+Each.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Each.swift"; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				AEA98FE41D89C1A300A2786C /* UIColor+RGB.swift */,
 				AEA98FE51D89C1A300A2786C /* UIStoryboard+Helper.swift */,
 				AEA98FE61D89C1A300A2786C /* UITableView+Helper.swift */,
+				AE71EA7A1D917C620001E58C /* UITableViewCell+Separator.swift */,
 				AEA98FE71D89C1A300A2786C /* UIView+Frame.swift */,
 				AEA98FE81D89C1A300A2786C /* UIView+Gone.swift */,
 				AEA98FE91D89C1A300A2786C /* UIView+Nib.swift */,
@@ -329,6 +332,7 @@
 				AEA98FFE1D89C1A300A2786C /* UIButton+Stretch.swift in Sources */,
 				AEA98FF11D89C1A300A2786C /* Int+Each.swift in Sources */,
 				AEA98FEC1D89C1A300A2786C /* Array+Shuffle.swift in Sources */,
+				AE71EA7B1D917C620001E58C /* UITableViewCell+Separator.swift in Sources */,
 				AEA98FF01D89C1A300A2786C /* HasAssociatedObjects.swift in Sources */,
 				AED7DED71D80849B00FA5AA4 /* AppDelegate.swift in Sources */,
 				AEA990021D89C1A300A2786C /* UIView+Frame.swift in Sources */,

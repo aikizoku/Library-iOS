@@ -54,6 +54,7 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
                 textLabel.text = self.sections.value[indexPath.section].rows.value[indexPath.row].title
             }
         }
+        cell?.separator = true
         return cell ?? UITableViewCell(style: .Default, reuseIdentifier: "Cell")
     }
 }
