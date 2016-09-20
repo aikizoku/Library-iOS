@@ -109,7 +109,7 @@ extension Dictionary {
      要素をArrayで取得する
      デフォルトは空のArrayが返る
      */
-    func getArray<AnyObject>(key: Key) -> Array<AnyObject> {
+    func getArray<T>(key: Key) -> Array<T> {
         return getArray(key, defaultValue: [])
     }
     
@@ -117,15 +117,15 @@ extension Dictionary {
      要素をArrayで取得する
      デフォルトは任意の値が返る
      */
-    func getArray<AnyObject>(key: Key, defaultValue: Array<AnyObject>) -> Array<AnyObject> {
-        return self[key] as? Array<AnyObject> ?? defaultValue
+    func getArray<T>(key: Key, defaultValue: Array<T>) -> Array<T> {
+        return self[key] as? Array<T> ?? defaultValue
     }
     
     /**
      要素をDictionaryで取得する
      デフォルトは空のDictionaryが返る
      */
-    func getDictionary<String, AnyObject>(key: Key) -> Dictionary<String, AnyObject> {
+    func getDictionary<String, T>(key: Key) -> Dictionary<String, T> {
         return getDictionary(key, defaultValue: [:])
     }
     
@@ -133,7 +133,7 @@ extension Dictionary {
      要素をDictionaryで取得する
      デフォルトは任意の値が返る
      */
-    func getDictionary<String, AnyObject>(key: Key, defaultValue: Dictionary<String, AnyObject>) -> Dictionary<String, AnyObject> {
-        return self[key] as? Dictionary<String, AnyObject> ?? defaultValue
+    func getDictionary<String, T>(key: Key, defaultValue: Dictionary<String, T>) -> Dictionary<String, T> {
+        return self[key] as? Dictionary<String, T> ?? defaultValue
     }
 }
