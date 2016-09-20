@@ -37,7 +37,7 @@ extension UIColor {
         hex = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         hex = hex.uppercaseString
         
-        guard hex.characters.count != 6 else {
+        guard hex.characters.count == 6 else {
             return UIColor.clearColor()
         }
         
