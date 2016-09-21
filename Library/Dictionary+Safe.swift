@@ -39,7 +39,16 @@ extension Dictionary {
      デフォルトは任意の値が返る
      */
     func getInt(key: Key, defaultValue: Int) -> Int {
-        return self[key] as? Int ?? defaultValue
+        let value = self[key]
+        if let value = value as? Int {
+            return value
+        } else if let value = value as? String {
+            return Int(value) ?? defaultValue
+        } else if let value = value as? Bool {
+            return value ? 1 : 0
+        } else {
+            return defaultValue
+        }
     }
     
     /**
@@ -55,7 +64,14 @@ extension Dictionary {
      デフォルトは任意の値が返る
      */
     func getFloat(key: Key, defaultValue: Float) -> Float {
-        return self[key] as? Float ?? defaultValue
+        let value = self[key]
+        if let value = value as? Float {
+            return value
+        } else if let value = value as? String {
+            return Float(value) ?? defaultValue
+        } else {
+            return defaultValue
+        }
     }
     
     /**
@@ -71,7 +87,14 @@ extension Dictionary {
      デフォルトは任意の値が返る
      */
     func getDouble(key: Key, defaultValue: Double) -> Double {
-        return self[key] as? Double ?? defaultValue
+        let value = self[key]
+        if let value = value as? Double {
+            return value
+        } else if let value = value as? String {
+            return Double(value) ?? defaultValue
+        } else {
+            return defaultValue
+        }
     }
     
     /**
@@ -87,19 +110,13 @@ extension Dictionary {
      デフォルトは任意の値が返る
      */
     func getBool(key: Key, defaultValue: Bool) -> Bool {
-        let value: Value? = self[key]
-        if let value = value as? Int {
+        let value = self[key]
+        if let value = value as? Bool {
+            return value
+        } else if let value = value as? Int {
             return Bool(value)
         } else if let value = value as? String {
-            if value == "1" {
-                return true
-            } else if (value == "true") {
-                return true
-            } else {
-                return false
-            }
-        } else if let value = value as? Bool {
-            return value
+            return value == "1" || value == "true"
         } else {
             return defaultValue
         }
