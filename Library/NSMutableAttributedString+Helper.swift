@@ -78,7 +78,7 @@ extension NSMutableAttributedString {
     }
     
     /**
-     文字列感覚を設定する
+     文字列間隔を設定する
      */
     func setLineSpace(lineSpace: CGFloat) {
         let paragraphStyle: NSMutableParagraphStyle = NSMutableParagraphStyle()
