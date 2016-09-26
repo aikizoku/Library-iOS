@@ -134,24 +134,50 @@ class System: NSObject {
     }
     
     /**
+     文字列をSafariで開く
+     */
+    static func openSafari(string string: String) {
+        guard string.isNotEmpty() else {
+            return
+        }
+        self.openSafari(url: NSURL(string: string))
+    }
+    
+    /**
      URLをSafariで開く
      */
-    static func openSafari(url: String) {
-        if let u = NSURL(string: url) {
-            UIApplication.sharedApplication().openURL(u)
+    static func openSafari(url url: NSURL?) {
+        guard let url = url else {
+            return
         }
+        if UIApplication.sharedApplication().canOpenURL(url) {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
+    /**
+     文字列をSafariView(iOS8はSafari)で開く
+     */
+    static func openSafariView(parentViewController: UIViewController, string: String) {
+        guard string.isNotEmpty() else {
+            return
+        }
+        self.openSafariView(parentViewController, url: NSURL(string: string))
     }
     
     /**
      URLをSafariView(iOS8はSafari)で開く
      */
-    static func openSafariView(parentViewController: UIViewController, url: String) {
-        if let u = NSURL(string: url) {
+    static func openSafariView(parentViewController: UIViewController, url: NSURL?) {
+        guard let url = url else {
+            return
+        }
+        if UIApplication.sharedApplication().canOpenURL(url) {
             if #available(iOS 9.0, *) {
-                let viewController = SFSafariViewController(URL: u, entersReaderIfAvailable: true)
+                let viewController = SFSafariViewController(URL: url, entersReaderIfAvailable: true)
                 parentViewController.presentViewController(viewController, animated: true, completion: nil)
             } else {
-                UIApplication.sharedApplication().openURL(u)
+                UIApplication.sharedApplication().openURL(url)
             }
         }
     }
