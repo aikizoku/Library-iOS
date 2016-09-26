@@ -13,8 +13,8 @@ extension String {
     /**
      空文字でないか判定する
      */
-    func isNotEmpty(string: String) -> Bool {
-        return !string.isEmpty
+    func isNotEmpty() -> Bool {
+        return !isEmpty
     }
     
     /**
