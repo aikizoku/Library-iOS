@@ -11,50 +11,50 @@ import UIKit
 
 extension UITableViewCell {
     
-    private var separatorView: UIView? {
+    private var theSeparatorView: UIView? {
         get {
-            return associatedObjects["separatorView"] as? UIView
+            return associatedObjects["theSeparatorView"] as? UIView
         }
         set {
-            associatedObjects["separatorView"] = newValue
+            associatedObjects["theSeparatorView"] = newValue
         }
     }
     
     /**
      セパレータの色を設定する
      */
-    var separatorColor: UIColor {
+    var theSeparatorColor: UIColor {
         get {
-            if let separatorColor = associatedObjects["separatorColor"] {
-                return separatorColor as! UIColor
+            if let theSeparatorColor = associatedObjects["theSeparatorColor"] {
+                return theSeparatorColor as! UIColor
             } else {
                 return UIColor.lightGrayColor()
             }
         }
         set {
-            if let separatorView = separatorView {
-                separatorView.backgroundColor = newValue
+            if let theSeparatorView = theSeparatorView {
+                theSeparatorView.backgroundColor = newValue
             }
-            associatedObjects["separatorColor"] = newValue
+            associatedObjects["theSeparatorColor"] = newValue
         }
     }
     
     /**
      セパレータの高さを設定する
      */
-    var separatorHeight: CGFloat {
+    var theSeparatorHeight: CGFloat {
         get {
-            if let separatorHeight = associatedObjects["separatorHeight"] {
-                return separatorHeight as! CGFloat
+            if let theSeparatorHeight = associatedObjects["theSeparatorHeight"] {
+                return theSeparatorHeight as! CGFloat
             } else {
                 return 0.5
             }
         }
         set {
-            if let separatorView = separatorView {
-                separatorView.height = newValue
+            if let theSeparatorView = theSeparatorView {
+                theSeparatorView.height = newValue
             }
-            associatedObjects["separatorHeight"] = newValue
+            associatedObjects["theSeparatorHeight"] = newValue
         }
     }
     
@@ -72,23 +72,23 @@ extension UITableViewCell {
         set {
             associatedObjects["separator"] = newValue
             if newValue {
-                if separatorView == nil {
-                    let separatorView: UIView = UIView()
-                    separatorView.backgroundColor = separatorColor
-                    separatorView.translatesAutoresizingMaskIntoConstraints = false
-                    separatorView.autoresizingMask = [.FlexibleTopMargin, .FlexibleWidth]
-                    separatorView.frame = CGRect(
+                if theSeparatorView == nil {
+                    let theSeparatorView: UIView = UIView()
+                    theSeparatorView.backgroundColor = theSeparatorColor
+                    theSeparatorView.translatesAutoresizingMaskIntoConstraints = false
+                    theSeparatorView.autoresizingMask = [.FlexibleTopMargin, .FlexibleWidth]
+                    theSeparatorView.frame = CGRect(
                         x: 0,
-                        y: contentView.height - separatorHeight,
+                        y: contentView.height - theSeparatorHeight,
                         width: contentView.width,
-                        height: separatorHeight)
-                    contentView.addSubview(separatorView)
-                    self.separatorView = separatorView
+                        height: theSeparatorHeight)
+                    contentView.addSubview(theSeparatorView)
+                    self.theSeparatorView = theSeparatorView
                 }
             } else {
-                if separatorView != nil {
-                    separatorView!.removeFromSuperview()
-                    separatorView = nil
+                if theSeparatorView != nil {
+                    theSeparatorView!.removeFromSuperview()
+                    theSeparatorView = nil
                 }
             }
         }
