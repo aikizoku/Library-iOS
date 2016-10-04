@@ -22,7 +22,7 @@ extension NSMutableAttributedString {
      文字列を追加する
      */
     func appendString(string: String) {
-        let string: NSMutableAttributedString = NSMutableAttributedString(string: string)
+        let string = NSMutableAttributedString(string: string)
         appendAttributedString(string)
     }
     
@@ -99,7 +99,7 @@ extension NSMutableAttributedString {
      文字列間隔を設定する
      */
     func setLineSpace(lineSpace: CGFloat) {
-        let paragraphStyle: NSMutableParagraphStyle = NSMutableParagraphStyle()
+        let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = lineSpace
         addAttribute(NSParagraphStyleAttributeName,
                      value: paragraphStyle,
