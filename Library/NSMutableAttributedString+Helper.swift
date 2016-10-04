@@ -39,6 +39,15 @@ extension NSMutableAttributedString {
                      range: range)
     }
     
+    func setFont(font: UIFont, string: String) {
+        guard let range = self.string.rangeOfString(string) else {
+            return
+        }
+        addAttribute(NSFontAttributeName,
+                     value: font,
+                     range: range.toNSRange())
+    }
+    
     /**
      カラーを設定する
      */
@@ -50,6 +59,15 @@ extension NSMutableAttributedString {
         addAttribute(NSForegroundColorAttributeName,
                      value: color,
                      range: range)
+    }
+    
+    func setColor(color: UIColor, string: String) {
+        guard let range = self.string.rangeOfString(string) else {
+            return
+        }
+        addAttribute(NSForegroundColorAttributeName,
+                     value: color,
+                     range: range.toNSRange())
     }
     
     /**
