@@ -19,4 +19,15 @@ extension NSDate {
         fmt.dateFormat = format
         return fmt.stringFromDate(self) ?? ""
     }
+    
+    /**
+     プッシュ通知のデバイストークン文字列を取得する
+     */
+    func toDeviceToken() -> String {
+        var token = description
+        token = token.replace("<", with: "")
+        token = token.replace(">", with: "")
+        token = token.replace(" ", with: "")
+        return token
+    }
 }

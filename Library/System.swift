@@ -8,6 +8,7 @@
 
 import Foundation
 import SafariServices
+import UserNotifications
 
 class System: NSObject {
     
@@ -56,17 +57,35 @@ class System: NSObject {
     }
     
     /**
+     Info.plistから値を取得する
+    */
+    static func objectForInfoDictionary<T>(key: String) -> T? {
+        if let value = NSBundle.mainBundle().objectForInfoDictionaryKey(key) as? T {
+            return value
+        }
+        return nil
+    }
+    
+    /**
      ビルドのバージョンを取得する
      */
     static func buildVersion() -> String {
-        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as? String ?? ""
+        if let value: String = objectForInfoDictionary("CFBundleVersion") {
+            return value
+        } else {
+            return ""
+        }
     }
     
     /**
      アプリのバージョンを取得する
      */
     static func appVersion() -> String {
-        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String ?? ""
+        if let value: String = objectForInfoDictionary("CFBundleShortVersionString") {
+            return value
+        } else {
+            return ""
+        }
     }
     
     /**
@@ -90,11 +109,24 @@ class System: NSObject {
      リモートプッシュ通知を登録する
      */
     static func registerRemotePushNotification() {
-        let types: UIUserNotificationType = [.Badge, .Sound, .Alert]
-        let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
         let application = UIApplication.sharedApplication()
-        application.registerUserNotificationSettings(settings)
-        application.registerForRemoteNotifications()
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.currentNotificationCenter()
+            center.requestAuthorizationWithOptions([.Badge, .Sound, .Alert], completionHandler: { (granted, error) in
+                guard granted else {
+                    if let error = error {
+                        NSLog("%@", error.description)
+                    }
+                    return
+                }
+                application.registerForRemoteNotifications()
+            })
+        } else {
+            let types: UIUserNotificationType = [.Badge, .Sound, .Alert]
+            let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+        }
     }
     
     /**
