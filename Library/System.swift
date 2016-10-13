@@ -148,7 +148,7 @@ class System: NSObject {
     /**
      指定した外部アプリがインストールされているか判定する
      */
-    static func isOpenExternalApp(urlScheme: String) -> Bool {
+    static func canOpenExternalApp(urlScheme: String) -> Bool {
         if let url = NSURL(string: urlScheme) {
             return UIApplication.sharedApplication().canOpenURL(url)
         } else {
