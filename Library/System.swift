@@ -235,4 +235,29 @@ class System: NSObject {
         return screenSize().height
     }
     
+    /**
+     共通Pastboardにテキストを貼り付ける
+     */
+    static func copyPastboard(text text: String) {
+        UIPasteboard.generalPasteboard().string = text
+    }
+    
+    /**
+     共通Pastboardに画像を貼り付ける
+     */
+    static func copyPastboard(image image: UIImage) {
+        UIPasteboard.generalPasteboard().image = image
+    }
+    
+    /**
+     共通Pastboardにテキストと画像を貼り付ける
+     */
+    static func copyPastboard(text text: String, image: UIImage) {
+        let pastboard = UIPasteboard.generalPasteboard()
+        pastboard.string = text
+        pastboard.image = image
+    }
+    
+    
+    
 }
