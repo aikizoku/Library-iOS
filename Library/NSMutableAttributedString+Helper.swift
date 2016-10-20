@@ -23,24 +23,25 @@ extension NSMutableAttributedString {
      */
     func appendString(string: String) {
         let string = NSMutableAttributedString(string: string)
-        appendAttributedString(string)
+        append(string)
     }
     
     /**
      フォントを設定する
      */
-    func setFont(font: UIFont) {
-        setFont(font, range: allRange())
+    func set(font: UIFont) {
+        set(font: font, range: allRange())
     }
     
-    func setFont(font: UIFont, range: NSRange) {
+    func set(font: UIFont, range: NSRange) {
         addAttribute(NSFontAttributeName,
                      value: font,
                      range: range)
     }
     
-    func setFont(font: UIFont, string: String) {
-        guard let range = self.string.rangeOfString(string) else {
+    func set(font: UIFont, string: String) {
+        self.string.range
+        guard let range = self.string.range(of: string) else {
             return
         }
         addAttribute(NSFontAttributeName,
@@ -51,18 +52,18 @@ extension NSMutableAttributedString {
     /**
      カラーを設定する
      */
-    func setColor(color: UIColor) {
-        setColor(color, range: allRange())
+    func set(color: UIColor) {
+        set(color: color, range: allRange())
     }
     
-    func setColor(color: UIColor, range: NSRange) {
+    func set(color: UIColor, range: NSRange) {
         addAttribute(NSForegroundColorAttributeName,
                      value: color,
                      range: range)
     }
     
-    func setColor(color: UIColor, string: String) {
-        guard let range = self.string.rangeOfString(string) else {
+    func set(color: UIColor, string: String) {
+        guard let range = self.string.range(of: string) else {
             return
         }
         addAttribute(NSForegroundColorAttributeName,
@@ -75,7 +76,7 @@ extension NSMutableAttributedString {
      */
     func appendImage(image aImage: UIImage) {
         appendImage(image: aImage,
-                    bounds: CGRect(origin: CGPointZero, size: aImage.size))
+                    bounds: CGRect(origin: CGPoint.zero, size: aImage.size))
     }
     
     func appendImage(image aImage: UIImage, origin aOrigin: CGPoint) {
@@ -85,14 +86,14 @@ extension NSMutableAttributedString {
     
     func appendImage(image aImage: UIImage, size aSize: CGSize) {
         appendImage(image: aImage,
-                    bounds: CGRect(origin: CGPointZero, size: aSize))
+                    bounds: CGRect(origin: CGPoint.zero, size: aSize))
     }
     
     func appendImage(image aImage: UIImage, bounds aBounds: CGRect) {
         let attachment: NSTextAttachment = NSTextAttachment()
         attachment.image = aImage
         attachment.bounds = aBounds
-        appendAttributedString(NSAttributedString(attachment: attachment))
+        append(NSAttributedString(attachment: attachment))
     }
     
     /**

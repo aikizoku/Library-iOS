@@ -16,14 +16,14 @@ class System: NSObject {
      iPhoneか判定する
      */
     static let isPhone = { () -> Bool in
-        return UIDevice.currentDevice().userInterfaceIdiom == .Phone
+        return UIDevice.current.userInterfaceIdiom == .phone
     }()
     
     /**
      iPadか判定する
      */
     static let isPad = { () -> Bool in
-        return UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        return UIDevice.current.userInterfaceIdiom == .pad
     }()
     
     /**
@@ -35,8 +35,8 @@ class System: NSObject {
         let mirror = Mirror(reflecting: systemInfo.machine)
         var identifier = ""
         for child in mirror.children {
-            if let value = child.value as? Int8 where value != 0 {
-                identifier.append(UnicodeScalar(UInt8(value)))
+            if let value = child.value as? Int8, value != 0 {
+                identifier.append(UnicodeScalar(UInt8(value)).escaped(asASCII: true))
             }
         }
         return identifier
@@ -46,21 +46,21 @@ class System: NSObject {
      端末のOSバージョンを取得する
      */
     static func osVersion() -> String {
-        return UIDevice.currentDevice().systemVersion
+        return UIDevice.current.systemVersion
     }
     
     /**
      アプリの識別子を取得する
      */
     static func bundleIdentifier() -> String {
-        return NSBundle.mainBundle().bundleIdentifier ?? ""
+        return Bundle.main.bundleIdentifier ?? ""
     }
     
     /**
      Info.plistから値を取得する
     */
-    static func objectForInfoDictionary<T>(key: String) -> T? {
-        if let value = NSBundle.mainBundle().objectForInfoDictionaryKey(key) as? T {
+    static func object<T>(forInfoDictionaryKey: String) -> T? {
+        if let value = Bundle.main.object(forInfoDictionaryKey: forInfoDictionaryKey) as? T {
             return value
         }
         return nil
@@ -70,7 +70,7 @@ class System: NSObject {
      ビルドのバージョンを取得する
      */
     static func buildVersion() -> String {
-        if let value: String = objectForInfoDictionary("CFBundleVersion") {
+        if let value: String = object(forInfoDictionaryKey: "CFBundleVersion") {
             return value
         } else {
             return ""
@@ -81,7 +81,7 @@ class System: NSObject {
      アプリのバージョンを取得する
      */
     static func appVersion() -> String {
-        if let value: String = objectForInfoDictionary("CFBundleShortVersionString") {
+        if let value: String = object(forInfoDictionaryKey: "CFBundleShortVersionString") {
             return value
         } else {
             return ""
@@ -92,38 +92,38 @@ class System: NSObject {
      現在設定されている端末の言語を取得する
      */
     static func currentLanguage() -> String {
-        return NSLocale.preferredLanguages().first ?? ""
+        return NSLocale.preferredLanguages.first ?? ""
     }
     
     /**
      現在設定されている端末のタイムゾーンを取得する
      */
     static func currentTimeZone() -> String {
-        let fmt = NSDateFormatter()
-        fmt.timeZone = NSTimeZone.defaultTimeZone()
+        let fmt = DateFormatter()
+        fmt.timeZone = TimeZone.current
         fmt.dateFormat = "ZZZ"
-        return fmt.stringFromDate(NSDate())
+        return fmt.string(from: Date())
     }
     
     /**
      リモートプッシュ通知を登録する
      */
     static func registerRemotePushNotification() {
-        let application = UIApplication.sharedApplication()
+        let application = UIApplication.shared
         if #available(iOS 10.0, *) {
-            let center = UNUserNotificationCenter.currentNotificationCenter()
-            center.requestAuthorizationWithOptions([.Badge, .Sound, .Alert], completionHandler: { (granted, error) in
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { (granted, error) in
                 guard granted else {
                     if let error = error {
-                        NSLog("%@", error.description)
+                        NSLog("%@", error.localizedDescription)
                     }
                     return
                 }
                 application.registerForRemoteNotifications()
             })
         } else {
-            let types: UIUserNotificationType = [.Badge, .Sound, .Alert]
-            let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
+            let types: UIUserNotificationType = [.badge, .sound, .alert]
+            let settings = UIUserNotificationSettings(types: types, categories: nil)
             application.registerUserNotificationSettings(settings)
             application.registerForRemoteNotifications()
         }
@@ -133,15 +133,15 @@ class System: NSObject {
      端末のプッシュ通知設定が有効か判定する
      */
     static func isEnablePushNotification() -> Bool {
-        return UIApplication.sharedApplication().isRegisteredForRemoteNotifications()
+        return UIApplication.shared.isRegisteredForRemoteNotifications
     }
     
     /**
      プッシュ通知設定画面に遷移する
      */
     static func openPushNotificationSetting() {
-        if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
-            UIApplication.sharedApplication().openURL(url)
+        if let url = URL(string:UIApplicationOpenSettingsURLString) {
+            UIApplication.shared.openURL(url)
         }
     }
     
@@ -149,8 +149,8 @@ class System: NSObject {
      指定した外部アプリがインストールされているか判定する
      */
     static func canOpenExternalApp(urlScheme: String) -> Bool {
-        if let url = NSURL(string: urlScheme) {
-            return UIApplication.sharedApplication().canOpenURL(url)
+        if let url = URL(string: urlScheme) {
+            return UIApplication.shared.canOpenURL(url)
         } else {
             return false
         }
@@ -160,30 +160,30 @@ class System: NSObject {
      外部アプリを開く
      */
     static func openExternalApp(urlScheme: String) {
-        if let url = NSURL(string: urlScheme) {
-            UIApplication.sharedApplication().openURL(url)
+        if let url = URL(string: urlScheme) {
+            UIApplication.shared.openURL(url)
         }
     }
     
     /**
      文字列をSafariで開く
      */
-    static func openSafari(string string: String) {
+    static func openSafari(string: String) {
         guard string.isNotEmpty() else {
             return
         }
-        self.openSafari(url: NSURL(string: string))
+        self.openSafari(url: URL(string: string))
     }
     
     /**
      URLをSafariで開く
      */
-    static func openSafari(url url: NSURL?) {
+    static func openSafari(url: URL?) {
         guard let url = url else {
             return
         }
-        if UIApplication.sharedApplication().canOpenURL(url) {
-            UIApplication.sharedApplication().openURL(url)
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.openURL(url)
         }
     }
     
@@ -194,7 +194,7 @@ class System: NSObject {
         guard string.isNotEmpty() else {
             return
         }
-        self.openSafariView(parentViewController, url: NSURL(string: string))
+        self.openSafariView(parentViewController, url: URL(string: string))
     }
     
     /**
@@ -204,12 +204,12 @@ class System: NSObject {
         guard let url = url else {
             return
         }
-        if UIApplication.sharedApplication().canOpenURL(url) {
+        if UIApplication.shared.canOpenURL(url) {
             if #available(iOS 9.0, *) {
                 let viewController = SFSafariViewController(URL: url, entersReaderIfAvailable: true)
                 parentViewController.presentViewController(viewController, animated: true, completion: nil)
             } else {
-                UIApplication.sharedApplication().openURL(url)
+                UIApplication.shared.openURL(url)
             }
         }
     }

@@ -13,9 +13,9 @@ extension Dictionary {
     /**
      KeyとValueを取得しながら繰り返す
      */
-    func each(closure: (key: Key, value: Value) -> Void) {
+    func each(closure: (_ key: Key, _ value: Value) -> Void) {
         for (key, value) in self {
-            closure(key: key, value: value)
+            closure(key, value)
         }
     }
 }

@@ -14,8 +14,8 @@ extension String {
      文字列をURLに変換する
      失敗したらダミーURLオブジェクトを返す
      */
-    func toUrl() -> NSURL {
-        return NSURL(string: self) ?? NSURL(string: "http://example.com/")!
+    func toUrl() -> URL {
+        return URL(string: self) ?? URL(string: "http://example.com/")!
     }
 
     /**
@@ -23,7 +23,7 @@ extension String {
      失敗したら元の文字列を返す
      */
     func urlEncode() -> String {
-        return stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()) ?? self
+        return addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? self
     }
     
     /**
@@ -31,6 +31,6 @@ extension String {
      失敗したら元の文字列を返す
      */
     func urlDecode() -> String {
-        return stringByRemovingPercentEncoding ?? self
+        return removingPercentEncoding ?? self
     }
 }

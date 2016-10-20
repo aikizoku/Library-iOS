@@ -17,7 +17,7 @@ extension String {
         let alphabet = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         let upperBound = UInt32(alphabet.characters.count)
         return String((0 ..< length).map { _ -> Character in
-            return alphabet[alphabet.startIndex.advancedBy(Int(arc4random_uniform(upperBound)))]
-            })
+            return alphabet[alphabet.index(alphabet.startIndex, offsetBy: Int(arc4random_uniform(upperBound)))]
+        })
     }
 }

@@ -15,7 +15,7 @@ extension UIStoryboard {
      instantiateViewControllerWithIdentifierの短縮
      */
     static func instantiateViewController<T>(storyboardName name: String, identifier: String) -> T? {
-        guard let viewController = UIStoryboard(name: name, bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(identifier) as? T else {
+        guard let viewController = UIStoryboard(name: name, bundle: Bundle.main).instantiateViewController(withIdentifier: identifier) as? T else {
             return nil
         }
         return viewController

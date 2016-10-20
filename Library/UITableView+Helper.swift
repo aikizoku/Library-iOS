@@ -15,10 +15,10 @@ extension UITableView {
      registerCellの短縮
      */
     func registerCell(identifier: String) {
-        registerNib(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
+        register(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
     }
-    func registerCell(nibName nibName: String, reuseIdentifier: String) {
-        registerNib(UINib(nibName: nibName, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
+    func registerCell(nibName: String, reuseIdentifier: String) {
+        register(UINib(nibName: nibName, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
     }
 }
 

@@ -43,15 +43,15 @@ class Math: NSObject {
     /**
      minからmaxの範囲で乱数を返す
      */
-    static func randInt(min min: Int, max: Int) -> Int {
+    static func randInt(min: Int, max: Int) -> Int {
         return Int(arc4random_uniform(UInt32(max - min + 1))) + min
     }
     
-    static func randFloat(min min: Float, max: Float) -> Float {
+    static func randFloat(min: Float, max: Float) -> Float {
         return (Float(arc4random_uniform(UINT32_MAX)) / Float(UINT32_MAX)) * (max - min) + min
     }
     
-    static func randDouble(min min: Double, max: Double) -> Double {
+    static func randDouble(min: Double, max: Double) -> Double {
         return (Double(arc4random_uniform(UINT32_MAX)) / Double(UINT32_MAX)) * (max - min) + min
     }
     

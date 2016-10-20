@@ -14,10 +14,10 @@ extension Int {
      数値を３桁カンマ区切りにする
      */
     func thousandSeparator() -> String {
-        let fmt = NSNumberFormatter()
-        fmt.numberStyle = .DecimalStyle
+        let fmt = NumberFormatter()
+        fmt.numberStyle = .decimal
         fmt.groupingSeparator = ","
         fmt.groupingSize = 3
-        return fmt.stringFromNumber(NSNumber(integer: self)) ?? String(self)
+        return fmt.string(from: NSNumber(value: self)) ?? String(self)
     }
 }

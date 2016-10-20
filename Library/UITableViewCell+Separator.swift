@@ -28,7 +28,7 @@ extension UITableViewCell {
             if let theSeparatorColor = associatedObjects["theSeparatorColor"] {
                 return theSeparatorColor as! UIColor
             } else {
-                return UIColor.lightGrayColor()
+                return UIColor.lightGray
             }
         }
         set {
@@ -76,7 +76,7 @@ extension UITableViewCell {
                     let theSeparatorView: UIView = UIView()
                     theSeparatorView.backgroundColor = theSeparatorColor
                     theSeparatorView.translatesAutoresizingMaskIntoConstraints = false
-                    theSeparatorView.autoresizingMask = [.FlexibleTopMargin, .FlexibleWidth]
+                    theSeparatorView.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
                     theSeparatorView.frame = CGRect(
                         x: 0,
                         y: contentView.height - theSeparatorHeight,

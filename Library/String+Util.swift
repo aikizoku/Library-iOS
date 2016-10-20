@@ -14,13 +14,13 @@ extension String {
      文字列をトリミングする
      */
     func trim() -> String {
-        return stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        return trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     /**
      文字列を指定文字列で全て置換する
      */
     func replace(target: String, with: String) -> String {
-        return stringByReplacingOccurrencesOfString(target, withString: with)
+        return replacingOccurrences(of: target, with: with)
     }
 }

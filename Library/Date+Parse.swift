@@ -1,5 +1,5 @@
 //
-//  NSDate+Parse.swift
+//  Date+Parse.swift
 //  Library
 //
 //  Created by Yuki Hirose on 2016/08/30.
@@ -8,16 +8,16 @@
 
 import Foundation
 
-extension NSDate {
+extension Date {
     
     /**
      フォーマットを指定して、西暦or和暦に影響されずにStringに変換する
      */
     func toString(format: String) -> String {
-        let fmt = NSDateFormatter()
-        fmt.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        let fmt = DateFormatter()
+        fmt.locale = Locale(identifier: "en_US_POSIX")
         fmt.dateFormat = format
-        return fmt.stringFromDate(self) ?? ""
+        return fmt.string(from: self) 
     }
     
     /**
@@ -25,9 +25,9 @@ extension NSDate {
      */
     func toDeviceToken() -> String {
         var token = description
-        token = token.replace("<", with: "")
-        token = token.replace(">", with: "")
-        token = token.replace(" ", with: "")
+        token = token.replace(target: "<", with: "")
+        token = token.replace(target: ">", with: "")
+        token = token.replace(target: " ", with: "")
         return token
     }
 }

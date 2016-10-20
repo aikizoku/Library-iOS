@@ -33,20 +33,20 @@ extension UIView: HasAssociatedObjects {
             if newValue && goneConstraint == nil {
                 let goneConstraint =
                     NSLayoutConstraint(item: self,
-                                       attribute: .Height,
-                                       relatedBy: .Equal,
+                                       attribute: .height,
+                                       relatedBy: .equal,
                                        toItem: nil,
-                                       attribute: .NotAnAttribute,
+                                       attribute: .notAnAttribute,
                                        multiplier: 1,
                                        constant: 0)
                 
                 addConstraint(goneConstraint)
                 self.goneConstraint = goneConstraint
-                hidden = true
+                isHidden = true
             } else if goneConstraint != nil {
                 removeConstraint(goneConstraint!)
                 goneConstraint = nil
-                hidden = false
+                isHidden = false
             }
         }
     }

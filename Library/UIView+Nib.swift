@@ -14,11 +14,11 @@ extension UIView {
     /**
      xibから独自Viewのインスタンスを取得する
      */
-    static func instance<T>(nibName nibName: String) -> T? {
-        let views = UINib(nibName: nibName, bundle: nil).instantiateWithOwner(nil, options: nil)
+    static func instance<T>(nibName: String) -> T? {
+        let views = UINib(nibName: nibName, bundle: nil).instantiate(withOwner: nil, options: nil)
         var view: T?
-        views.each(e: { (element: AnyObject) in
-            if element.dynamicType === self {
+        views.each(e: { (element: Any) in
+            if type(of: element) == self {
                 view = element as? T
             }
         })

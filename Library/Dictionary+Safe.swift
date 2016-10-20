@@ -15,7 +15,7 @@ extension Dictionary {
      デフォルトは空文字が返る
      */
     func getString(key: Key) -> String {
-        return getString(key, defaultValue: "")
+        return getString(key: key, defaultValue: "")
     }
     
     /**
@@ -31,7 +31,7 @@ extension Dictionary {
      デフォルトは0が返る
      */
     func getInt(key: Key) -> Int {
-        return getInt(key, defaultValue: 0)
+        return getInt(key: key, defaultValue: 0)
     }
     
     /**
@@ -56,7 +56,7 @@ extension Dictionary {
      デフォルトは0が返る
      */
     func getFloat(key: Key) -> Float {
-        return getFloat(key, defaultValue: 0)
+        return getFloat(key: key, defaultValue: 0)
     }
     
     /**
@@ -79,7 +79,7 @@ extension Dictionary {
      デフォルトは0が返る
      */
     func getDouble(key: Key) -> Double {
-        return getDouble(key, defaultValue: 0)
+        return getDouble(key: key, defaultValue: 0)
     }
     
     /**
@@ -102,7 +102,7 @@ extension Dictionary {
      デフォルトはfalseが返る
      */
     func getBool(key: Key) -> Bool {
-        return getBool(key, defaultValue: false)
+        return getBool(key: key, defaultValue: false)
     }
     
     /**
@@ -114,7 +114,7 @@ extension Dictionary {
         if let value = value as? Bool {
             return value
         } else if let value = value as? Int {
-            return Bool(value)
+            return Bool(NSNumber(value: value))
         } else if let value = value as? String {
             return value == "1" || value == "true"
         } else {
@@ -127,7 +127,7 @@ extension Dictionary {
      デフォルトは空のArrayが返る
      */
     func getArray<T>(key: Key) -> Array<T> {
-        return getArray(key, defaultValue: [])
+        return getArray(key: key, defaultValue: [])
     }
     
     /**
@@ -143,7 +143,7 @@ extension Dictionary {
      デフォルトは空のDictionaryが返る
      */
     func getDictionary<String, T>(key: Key) -> Dictionary<String, T> {
-        return getDictionary(key, defaultValue: [:])
+        return getDictionary(key: key, defaultValue: [:])
     }
     
     /**

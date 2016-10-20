@@ -31,8 +31,8 @@ extension String {
      数値かどうか判定する
      */
     func isNumeric() -> Bool {
-        let sc = NSScanner(string: self)
-        sc.locale = NSLocale.currentLocale()
-        return sc.scanDecimal(nil) && sc.atEnd
+        let sc = Scanner(string: self)
+        sc.locale = Locale.current
+        return sc.scanDecimal(nil) && sc.isAtEnd
     }
 }

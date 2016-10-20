@@ -13,9 +13,9 @@ extension Int {
     /**
      指定回数だけ繰り返す
      */
-    func each(closure: (i: Int) -> Void) {
+    func each(closure: (_ i: Int) -> Void) {
         for i in 0 ..< self {
-            closure(i: i)
+            closure(i)
         }
     }
 }
