@@ -14,8 +14,8 @@ extension String {
      文字列をURLに変換する
      失敗したらダミーURLオブジェクトを返す
      */
-    func toUrl() -> URL {
-        return URL(string: self) ?? URL(string: "http://example.com/")!
+    var url: URL? {
+        return URL(string: self)
     }
 
     /**

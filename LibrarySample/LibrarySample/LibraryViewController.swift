@@ -39,23 +39,23 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
         }).addDisposableTo(disposeBag)
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return self.sections.value.count
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sections.value[section].rows.value.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
         if let cell = cell {
             if let textLabel = cell.textLabel {
                 textLabel.text = self.sections.value[indexPath.section].rows.value[indexPath.row].title
             }
         }
         cell?.separator = true
-        return cell ?? UITableViewCell(style: .Default, reuseIdentifier: "Cell")
+        return cell ?? UITableViewCell(style: .default, reuseIdentifier: "Cell")
     }
 }
 
