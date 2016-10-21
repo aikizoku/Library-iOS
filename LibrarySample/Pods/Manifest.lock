@@ -1,16 +1,25 @@
 PODS:
+  - AsyncSwift (2.0.0)
   - RxCocoa (3.0.0-rc.1):
     - RxSwift (~> 3.0.0-rc.1)
   - RxSwift (3.0.0-rc.1)
+  - SwiftDate (4.0.6)
+  - TextAttributes (1.0)
 
 DEPENDENCIES:
+  - AsyncSwift
   - RxCocoa (= 3.0.0-rc.1)
   - RxSwift (= 3.0.0-rc.1)
+  - SwiftDate
+  - TextAttributes
 
 SPEC CHECKSUMS:
+  AsyncSwift: 6ba6ed9ecb51344458063f7c86fe447ab824e313
   RxCocoa: e72a074a7f38896ec0382d096df5f58df10115c7
   RxSwift: d7a3819dd71789c473e3cbf1a0c02d58b2692739
+  SwiftDate: 549729eaa54bd9f64fd80abfd12ddd3d44ff5098
+  TextAttributes: 45b2713a1d174c377d320b51129c304eac381638
 
-PODFILE CHECKSUM: 1ed731807c102119418685b6141e27e6c40e2071
+PODFILE CHECKSUM: 66484ad6e997e306c53570a3ffcb6bf239c6296c
 
 COCOAPODS: 1.0.1

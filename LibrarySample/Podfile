@@ -8,7 +8,9 @@ target 'LibrarySample' do
   # Pods for LibrarySample
   pod 'RxSwift',    '3.0.0-rc.1'
   pod 'RxCocoa',    '3.0.0-rc.1'
-  
+  pod 'TextAttributes'
+  pod 'AsyncSwift'
+  pod 'SwiftDate'
 end
 
 post_install do |installer|
