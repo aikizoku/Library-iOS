@@ -66,6 +66,6 @@ class Math: NSObject {
      百分率でランダムな真偽値を返す
      */
     static func randBool(percent: Int) -> Bool {
-        return self.randInt(min:0, max: 100) < percent
+        return self.randInt(min:0, max: 99) < percent
     }
 }
