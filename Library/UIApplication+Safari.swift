@@ -1,11 +1,3 @@
-//
-//  UIApplication+Safari.swift
-//  LibrarySample
-//
-//  Created by Yuki Hirose on 2016/10/21.
-//  Copyright © 2016年 yukithehero. All rights reserved.
-//
-
 import Foundation
 import SafariServices
 
@@ -15,7 +7,7 @@ extension UIApplication {
      文字列をSafariで開く
      */
     func openSafari(string: String) {
-        guard string.isNotEmpty() else {
+        guard string.isNotEmpty else {
             return
         }
         openSafari(url: URL(string: string))
@@ -37,7 +29,7 @@ extension UIApplication {
      文字列をSafariView(iOS8はSafari)で開く
      */
     func openSafariView(parentViewController: UIViewController, string: String) {
-        guard string.isNotEmpty() else {
+        guard string.isNotEmpty else {
             return
         }
         openSafariView(parentViewController: parentViewController, url: URL(string: string))

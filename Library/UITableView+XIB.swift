@@ -1,11 +1,3 @@
-//
-//  UITableView+XIB.swift
-//  Library
-//
-//  Created by Yuki Hirose on 2016/09/06.
-//  Copyright © 2016年 yukithehero. All rights reserved.
-//
-
 import Foundation
 import UIKit
 

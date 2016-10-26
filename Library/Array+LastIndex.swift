@@ -6,6 +6,7 @@ extension Array {
      最後のIndexを取得する
      
      ["a", "b", "c"].lastIndex
+     →2
      */
     var lastIndex: Int {
         get {

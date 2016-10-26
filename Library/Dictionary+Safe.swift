@@ -1,11 +1,3 @@
-//
-//  Dictionary+Safe.swift
-//  Library
-//
-//  Created by Yuki Hirose on 2016/08/31.
-//  Copyright © 2016年 yukithehero. All rights reserved.
-//
-
 import Foundation
 
 extension Dictionary {

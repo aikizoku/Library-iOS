@@ -1,24 +1,25 @@
-//
-//  UIScreen+Size.swift
-//  LibrarySample
-//
-//  Created by Yuki Hirose on 2016/10/21.
-//  Copyright © 2016年 yukithehero. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
 extension UIScreen {
     
+    /**
+     画面サイズを取得する
+     */
     class var size: CGSize {
         return UIScreen.main.bounds.size
     }
     
+    /**
+     画面の横幅を取得する
+     */
     class var width: CGFloat {
         return UIScreen.main.bounds.size.width
     }
     
+    /**
+     画面の縦幅を取得する
+     */
     class var height: CGFloat {
         return UIScreen.main.bounds.size.height
     }

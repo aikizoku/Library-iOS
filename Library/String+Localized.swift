@@ -1,15 +1,13 @@
-//
-//  String+Localized.swift
-//  LibrarySample
-//
-//  Created by Yuki Hirose on 2016/10/21.
-//  Copyright © 2016年 yukithehero. All rights reserved.
-//
-
 import Foundation
 
 extension String {
     
+    /**
+     ローカライズ文字列取得の短縮系
+     
+     "hello".localized
+     →"こんにちわ"
+     */
     var localized: String {
         return NSLocalizedString(self, comment: self)
     }

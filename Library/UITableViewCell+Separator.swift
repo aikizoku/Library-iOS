@@ -1,11 +1,3 @@
-//
-//  UITableViewCell+Separator.swift
-//  LibrarySample
-//
-//  Created by yukithehero on 2016/09/20.
-//  Copyright © 2016年 yukithehero. All rights reserved.
-//
-
 import Foundation
 import UIKit
 

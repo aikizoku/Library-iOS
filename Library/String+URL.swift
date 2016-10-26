@@ -1,18 +1,11 @@
-//
-//  String+URL.swift
-//  Library
-//
-//  Created by Yuki Hirose on 2016/09/07.
-//  Copyright © 2016年 yukithehero. All rights reserved.
-//
-
 import Foundation
 
 extension String {
     
     /**
      文字列をURLに変換する
-     失敗したらダミーURLオブジェクトを返す
+     
+     "http://thehero.jp".url
      */
     var url: URL? {
         return URL(string: self)
@@ -21,16 +14,22 @@ extension String {
     /**
      文字列をURLエンコードする
      失敗したら元の文字列を返す
+     
+     "http://thehero.jp?key=value".urlEncode()
+     →"http%3A%2F%2Fthehero.jp%3Fkey%3Dvalue"
      */
-    func urlEncode() -> String {
+    var urlEncode: String {
         return addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? self
     }
     
     /**
      文字列をURLデコードする
      失敗したら元の文字列を返す
+     
+     "http%3A%2F%2Fthehero.jp%3Fkey%3Dvalue".urlDecode()
+     →"http://thehero.jp?key=value"
      */
-    func urlDecode() -> String {
+    var urlDecode: String {
         return removingPercentEncoding ?? self
     }
 }

@@ -6,6 +6,7 @@ extension Array {
      要素をシャッフルする
      
      ["a", "b", "c"].shuffle()
+     →["b", "c", "a"]
      */
     mutating func shuffle() {
         for i in 0..<count {

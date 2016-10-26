@@ -1,24 +1,24 @@
-//
-//  String+Check.swift
-//  Library
-//
-//  Created by Yuki Hirose on 2016/09/07.
-//  Copyright © 2016年 yukithehero. All rights reserved.
-//
-
 import Foundation
 
 extension String {
     
     /**
      空文字でないか判定する
+     
+     if "hoge".isNotEmpty {
+        NSLog("空文字じゃないよ")
+     }
      */
-    func isNotEmpty() -> Bool {
+    var isNotEmpty: Bool {
         return !isEmpty
     }
     
     /**
      nilでもなく、空文字でもないか判定する
+     
+     if String.isNotNilEmpty(string: str) {
+        NSLog("nilでも空文字でもないよ")
+     }
      */
     static func isNotNilEmpty(string: String?) -> Bool {
         guard let string = string else {
@@ -29,8 +29,12 @@ extension String {
     
     /**
      数値かどうか判定する
+     
+     if "12345.67".isNumeric {
+        NSLog("数字だよ")
+     }
      */
-    func isNumeric() -> Bool {
+    var isNumeric: Bool {
         let sc = Scanner(string: self)
         sc.locale = Locale.current
         return sc.scanDecimal(nil) && sc.isAtEnd

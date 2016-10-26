@@ -1,17 +1,12 @@
-//
-//  String+Random.swift
-//  Library
-//
-//  Created by yukithehero on 2016/08/30.
-//  Copyright © 2016年 yukithehero. All rights reserved.
-//
-
 import Foundation
 
 extension String {
     
     /**
      指定の長さのランダム文字列(0~0,a~z,A~Z)を生成する
+     
+     String.rand(length: 5)
+     →"YUjx8"
      */
     static func rand(length: Int) -> String {
         let alphabet = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"

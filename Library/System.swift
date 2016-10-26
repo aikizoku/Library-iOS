@@ -1,11 +1,3 @@
-//
-//  SystemUtil.swift
-//  Library
-//
-//  Created by yukithehero on 2016/08/29.
-//  Copyright © 2016年 yukithehero. All rights reserved.
-//
-
 import Foundation
 import UIKit
 

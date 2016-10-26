@@ -1,17 +1,12 @@
-//
-//  Dictionary+Merge.swift
-//  moonshot
-//
-//  Created by Yuki Hirose on 2016/09/23.
-//  Copyright © 2016年 Yuki Hirose. All rights reserved.
-//
-
 import Foundation
 
 extension Dictionary {
     
     /**
-     * 自身に配列を結合する（上書き）
+     Dictionaryを結合する（上書き）
+     
+     ["a": "あ", "i": "い"].marge(dictionary: ["a": "hoge", "u": "う"])
+     →["a": "hoge", "i": "い", "u": "う"]
      */
     mutating func merge(dictionary: Dictionary) {
         dictionary.each { (key, value) in
@@ -19,9 +14,6 @@ extension Dictionary {
         }
     }
     
-    /**
-     * 配列を結合する（上書き）
-     */
     func merged(dictionary: Dictionary) -> Dictionary {
         var this = self
         dictionary.each { (key, value) in
@@ -31,7 +23,10 @@ extension Dictionary {
     }
     
     /**
-     * 自身に配列を結合する（上書きしない）
+     Dictionaryを結合する（上書きしない）
+     
+     ["a": "あ", "i": "い"].marge(dictionary: ["a": "hoge", "u": "う"])
+     →["a": "あ", "i": "い", "u": "う"]
      */
     mutating func safeMerge(dictionary: Dictionary) {
         each { (key, value) in
@@ -41,9 +36,6 @@ extension Dictionary {
         }
     }
     
-    /**
-     * 配列を結合する（上書きしない）
-     */
     func safeMerged(dictionary: Dictionary) -> Dictionary {
         var this = self
         dictionary.each { (key, value) in
