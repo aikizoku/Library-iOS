@@ -8,29 +8,13 @@
 
 このライブラリは、可能な限りnilを意識しないで使えるようにする（Swiftっぽく）
 
-## Cocoapods
+## 使い方
 
-インストール
+### コピペ
+
+使いたいのをコピペして改変して使ってください
+
+### Cocoapods
 ```
 sudo gem install -n /usr/local/bin cocoapods
-```
-
-セットアップ
-```
-pod setup
-```
-
-Podfile作成
-```
-pod init
-```
-
-ライブラリのインストール
-```
-pod install
-```
-
-ライブラリのアップデート
-```
-pod update
 ```
