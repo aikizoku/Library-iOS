@@ -1,17 +1,11 @@
-//
-//  Array+Shuffle.swift
-//  Library
-//
-//  Created by Yuki Hirose on 2016/09/06.
-//  Copyright © 2016年 yukithehero. All rights reserved.
-//
-
 import Foundation
 
 extension Array {
     
     /**
      要素をシャッフルする
+     
+     ["a", "b", "c"].shuffle()
      */
     mutating func shuffle() {
         for i in 0..<count {

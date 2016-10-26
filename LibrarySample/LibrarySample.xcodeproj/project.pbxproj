@@ -46,6 +46,7 @@
 		9F8DF43B1DB9FA4300AA59CE /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8DF43A1DB9FA4300AA59CE /* UIViewController+Storyboard.swift */; };
 		9F8DF43D1DBA03AE00AA59CE /* UIView+Remove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8DF43C1DBA03AE00AA59CE /* UIView+Remove.swift */; };
 		9F8DF4411DBA076500AA59CE /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8DF4401DBA076500AA59CE /* String+Localized.swift */; };
+		9FC806BF1DC04FA700F8C21A /* Data+Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC806BE1DC04FA700F8C21A /* Data+Parse.swift */; };
 		AED7DED71D80849B00FA5AA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7DED61D80849B00FA5AA4 /* AppDelegate.swift */; };
 		AED7DED91D80849B00FA5AA4 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7DED81D80849B00FA5AA4 /* LibraryViewController.swift */; };
 		AED7DEDC1D80849B00FA5AA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AED7DEDA1D80849B00FA5AA4 /* Main.storyboard */; };
@@ -98,6 +99,7 @@
 		9F8DF43A1DB9FA4300AA59CE /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		9F8DF43C1DBA03AE00AA59CE /* UIView+Remove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Remove.swift"; sourceTree = "<group>"; };
 		9F8DF4401DBA076500AA59CE /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		9FC806BE1DC04FA700F8C21A /* Data+Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Parse.swift"; sourceTree = "<group>"; };
 		AED7DED31D80849B00FA5AA4 /* LibrarySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibrarySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED7DED61D80849B00FA5AA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AED7DED81D80849B00FA5AA4 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				9F8DF3CD1DB9DAF000AA59CE /* Array+Shuffle.swift */,
 				9F8DF3CE1DB9DAF000AA59CE /* Array+LastIndex.swift */,
 				9F8DF3CF1DB9DAF000AA59CE /* Date+Parse.swift */,
+				9FC806BE1DC04FA700F8C21A /* Data+Parse.swift */,
 				9F8DF3D01DB9DAF000AA59CE /* Dictionary+Each.swift */,
 				9F8DF3D11DB9DAF000AA59CE /* Dictionary+Safe.swift */,
 				9F8DF3D21DB9DAF000AA59CE /* Dictionary+Merge.swift */,
@@ -368,6 +371,7 @@
 				9F8DF4051DB9DAF000AA59CE /* UITableView+XIB.swift in Sources */,
 				9F8DF3EF1DB9DAF000AA59CE /* Date+Parse.swift in Sources */,
 				AED7DED71D80849B00FA5AA4 /* AppDelegate.swift in Sources */,
+				9FC806BF1DC04FA700F8C21A /* Data+Parse.swift in Sources */,
 				9F8DF3EE1DB9DAF000AA59CE /* Array+LastIndex.swift in Sources */,
 				9F8DF42B1DB9DE6A00AA59CE /* NSObject+ClassName.swift in Sources */,
 				9F8DF4331DB9F1BD00AA59CE /* UIApplication+Safari.swift in Sources */,

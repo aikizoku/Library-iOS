@@ -1,17 +1,11 @@
-//
-//  Array+LastIndex.swift
-//  LibrarySample
-//
-//  Created by yukithehero on 2016/09/16.
-//  Copyright © 2016年 yukithehero. All rights reserved.
-//
-
 import Foundation
 
 extension Array {
     
     /**
      最後のIndexを取得する
+     
+     ["a", "b", "c"].lastIndex
      */
     var lastIndex: Int {
         get {
